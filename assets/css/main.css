@@ -1,5 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 body {
     background-image: url("/assets/img/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+
+header {
+    background: #FFFFFF;
+    padding: 2rem;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
 }
