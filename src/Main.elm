@@ -1,8 +1,7 @@
 module Main exposing (..)
-
-import Html exposing (text)
+import Common.Header.View exposing (mainHeader)
 
 
 main =
-    text "Patrocina Rodeios"
+    mainHeader {title = "Patrocina Rodeios"}
 

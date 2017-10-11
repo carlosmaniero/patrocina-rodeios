@@ -10,6 +10,21 @@ Essa é uma aplicação desenvolvida usando Elm.
 
     npm install -g elm elm-live
 
+# Baixando dependências
+
+    elm-package install
+
 ## Executando
 
     elm-live --output=elm.js src/Main.elm --pushstate --open --debug
+
+## Testando
+
+Para executar os testes é necessário baixar as dependências da pasta `test`
+
+    cd tests
+    elm-package install
+
+Em seguida executar o comando:
+
+    elm-test
