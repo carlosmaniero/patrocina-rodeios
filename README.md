@@ -1,5 +1,7 @@
 # Patrocina Rodeios
 
+[![Build Status](https://travis-ci.org/carlosmaniero/patrocina-rodeios.svg?branch=master)](https://travis-ci.org/carlosmaniero/patrocina-rodeios)
+
 Listagem de empresas que estão envolvidas no patrocínio de rodeios.
 
 # Desenvolvimento
