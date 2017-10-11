@@ -8,6 +8,7 @@ body {
     background-image: url("/assets/img/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Abel', sans-serif;
 }
 
 
@@ -18,4 +19,8 @@ header {
 
 h1 {
     font-family: 'Merriweather', serif;
+}
+
+h2 {
+    font-weight: normal;
 }
