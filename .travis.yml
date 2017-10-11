@@ -1,4 +1,7 @@
 language: haskell
+cache:
+  directories:
+    - tests/elm-stuff/build-artifacts
 install:
   - npm install -g elm elm-test
   - elm-package install -y
