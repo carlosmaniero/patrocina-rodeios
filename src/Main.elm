@@ -2,8 +2,8 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Msgs exposing (..)
-import Common.Header.Model as HeaderModel
-import Common.Header.View exposing (mainHeader)
+import Layout.Header.Model as HeaderModel
+import Layout.Header.View exposing (mainHeader)
 import Search.Model as SearchModel
 import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
