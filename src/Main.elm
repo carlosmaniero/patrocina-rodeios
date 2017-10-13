@@ -11,6 +11,7 @@ import Companies.Model as CompaniesModel
 import Companies.Service as CompaniesService
 import Companies.View as CompaniesView exposing (renderCompanies)
 import Search.View exposing (search)
+import Search.Filters
 
 
 -- MODEL
@@ -30,7 +31,7 @@ model =
         , subtitle = "Descubra quais são as empresas que patrocinam rodeios."
         }
     , search =
-        { term = "Olá, Mundo!" }
+        { term = "" }
     , companies =
         []
     }
@@ -50,7 +51,7 @@ view model =
     div []
         [ mainHeader model.header
         , search model.search
-        , renderCompanies model.companies
+        , renderCompanies (Search.Filters.filterCompaniesByName model.search.term model.companies)
         ]
 
 
