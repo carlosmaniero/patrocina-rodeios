@@ -9,6 +9,7 @@ import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
 import Companies.Model as CompaniesModel
 import Companies.Service as CompaniesService
+import Companies.View as CompaniesView exposing (renderCompanies)
 import Search.View exposing (search)
 
 
@@ -49,6 +50,7 @@ view model =
     div []
         [ mainHeader model.header
         , search model.search
+        , renderCompanies model.companies
         ]
 
 
