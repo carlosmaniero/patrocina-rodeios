@@ -1,9 +1,10 @@
 module Search.Update exposing (Msg(..), update)
+
 import Search.Model exposing (Model)
 
 
-type Msg =
-    Input String
+type Msg
+    = Input String
 
 
 update : Msg -> Model -> Model

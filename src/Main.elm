@@ -1,32 +1,43 @@
 module Main exposing (..)
+
 import Html exposing (..)
 import Msgs exposing (..)
 import Common.Header.Model as HeaderModel
 import Common.Header.View exposing (mainHeader)
 import Search.Model as SearchModel
 import Search.Update as SearchUpdate
+import Companies.Update as CompaniesUpdate
+import Companies.Model as CompaniesModel
+import Companies.Service as CompaniesService
 import Search.View exposing (search)
 
 
 -- MODEL
 
+
 type alias Model =
     { header : HeaderModel.Model
-    , search : SearchModel.Model }
+    , search : SearchModel.Model
+    , companies : List CompaniesModel.Model
+    }
 
 
 model : Model
 model =
     { header =
         { title = "Patrocina Rodeios"
-        , subtitle = "Descubra quais são as empresas que patrocinam rodeios." }
+        , subtitle = "Descubra quais são as empresas que patrocinam rodeios."
+        }
     , search =
         { term = "Olá, Mundo!" }
+    , companies =
+        []
     }
+
 
 init : ( Model, Cmd Msg )
 init =
-    ( model , Cmd.none )
+    ( model, CompaniesService.getCompanies )
 
 
 
@@ -36,9 +47,10 @@ init =
 view : Model -> Html Msg
 view model =
     div []
-    [ mainHeader model.header
-    , search model.search
-    ]
+        [ mainHeader model.header
+        , search model.search
+        ]
+
 
 
 -- UPDATE
@@ -50,6 +62,8 @@ update msg model =
         Search msg ->
             ( { model | search = SearchUpdate.update msg model.search }, Cmd.none )
 
+        Companies msg ->
+            ( { model | companies = CompaniesUpdate.update msg model.companies }, Cmd.none )
 
 
 
@@ -73,4 +87,3 @@ main =
         , update = update
         , subscriptions = subscriptions
         }
-

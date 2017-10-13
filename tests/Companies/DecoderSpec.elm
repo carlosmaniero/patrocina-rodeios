@@ -1,8 +1,10 @@
 module Companies.DecoderSpec exposing (..)
+
 import Companies.Decoder as Decoder
 import Test exposing (..)
 import Json.Decode
 import Expect
+
 
 tests : Test
 tests =
@@ -20,7 +22,8 @@ tests =
 
                     decodedOutput =
                         Json.Decode.decodeString
-                            Decoder.decodeModel input
+                            Decoder.decodeModel
+                            input
                 in
                     Expect.equal decodedOutput
                         (Ok
@@ -43,7 +46,8 @@ tests =
 
                     decodedOutput =
                         Json.Decode.decodeString
-                            Decoder.decodeList input
+                            Decoder.decodeList
+                            input
                 in
                     Expect.equal decodedOutput
                         (Ok
@@ -51,6 +55,7 @@ tests =
                               , link = "http://fucking-company.com"
                               , image = "http://fucking-company.com/logo.png"
                               , twitter = "http://twitter.com/fucking-company"
-                              } ]
+                              }
+                            ]
                         )
         ]
