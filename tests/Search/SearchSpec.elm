@@ -49,20 +49,20 @@ tests =
                         Query.find [ Selector.tag "input" ] <|
                             Query.fromHtml <|
                                 search <|
-                                    { term = "Cruel Company", result = [], label = "" }
+                                    { term = "Cruel Company", result = [], label = "", userSearching = True }
             , test "that search throws the search input event when user types" <|
                 \() ->
-                    Event.expect ((Msgs.Search << Msg.Input) "a") <|
+                    Event.expect (Msgs.Search <| Msg.Input "a") <|
                         Event.simulate (Event.input "a") <|
                             Query.find [ Selector.tag "input" ] <|
                                 Query.fromHtml <|
-                                    search { term = "", result = [], label = "" }
+                                    search { term = "", result = [], label = "", userSearching = True }
             , test "that search renders the label" <|
                 \() ->
                     Query.has [ Selector.text "Find Companies" ] <|
                         Query.find [ Selector.tag "h2" ] <|
                             Query.fromHtml <|
-                                search { term = "", result = [], label = "Find Companies" }
+                                search { term = "", result = [], label = "Find Companies", userSearching = True }
             , test "that search renders quick view given a result" <|
                 \() ->
                     let
@@ -70,7 +70,7 @@ tests =
                             Query.findAll [ Selector.tag "li" ] <|
                                 Query.find [ Selector.class "search-quick-view" ] <|
                                     Query.fromHtml <|
-                                        search { term = "", result = validCompanies, label = "Find Companies" }
+                                        search { term = "", result = validCompanies, label = "Find Companies", userSearching = True }
                     in
                         Expect.all
                             [ Query.has [ Selector.text "Cruel Company" ]
@@ -88,5 +88,25 @@ tests =
                     Query.has [ Selector.class "hidden" ] <|
                         Query.find [ Selector.class "search-quick-view" ] <|
                             Query.fromHtml <|
-                                search { term = "", result = [], label = "Find Companies" }
+                                search { term = "", result = [], label = "Find Companies", userSearching = True }
+            , test "that search quick view is hidden when user is not searching" <|
+                \() ->
+                    Query.has [ Selector.class "hidden" ] <|
+                        Query.find [ Selector.class "search-quick-view" ] <|
+                            Query.fromHtml <|
+                                search { term = "", result = validCompanies, label = "Find Companies", userSearching = False }
+            , test "that search throws the search focus true event when user enters the input field" <|
+                \() ->
+                    Event.expect (Msgs.Search <| Msg.Focus True) <|
+                        Event.simulate (Event.focus) <|
+                            Query.find [ Selector.tag "input" ] <|
+                                Query.fromHtml <|
+                                    search { term = "", result = [], label = "", userSearching = False }
+            , test "that search throws the search focus false event when user leaves the input field" <|
+                \() ->
+                    Event.expect (Msgs.Search <| Msg.Focus False) <|
+                        Event.simulate (Event.blur) <|
+                            Query.find [ Selector.tag "input" ] <|
+                                Query.fromHtml <|
+                                    search { term = "", result = [], label = "", userSearching = True }
             ]

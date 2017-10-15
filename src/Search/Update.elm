@@ -12,3 +12,6 @@ update msg model companies =
     case msg of
         Input term ->
             ( { model | term = term, result = filterCompaniesByName term companies }, Cmd.none )
+
+        Focus isFocus ->
+            ( { model | userSearching = isFocus }, Cmd.none )

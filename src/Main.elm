@@ -21,6 +21,7 @@ model =
         { term = ""
         , label = "Digite o nome da empresa e veja se há envolvimento com redeios"
         , result = []
+        , userSearching = False
         }
     , companies =
         []

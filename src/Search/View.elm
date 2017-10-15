@@ -16,7 +16,15 @@ search model =
             [ text model.label ]
         , div
             [ class "search-field" ]
-            [ input [ onInput <| Msgs.Search << Msg.Input, value model.term, placeholder "buscar" ] [] ]
+            [ input
+                [ onInput <| Msgs.Search << Msg.Input
+                , onFocus <| Msgs.Search <| Msg.Focus True
+                , onBlur <| Msgs.Search <| Msg.Focus False
+                , value model.term
+                , placeholder "buscar"
+                ]
+                []
+            ]
         , quickView model
         ]
 
@@ -30,7 +38,7 @@ quickView : Model -> Html Msgs.Msg
 quickView model =
     let
         visibilityClass =
-            if List.isEmpty model.result then
+            if List.isEmpty model.result || not model.userSearching then
                 "hidden"
             else
                 ""

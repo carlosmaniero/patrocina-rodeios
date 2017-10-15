@@ -43,7 +43,7 @@ tests =
                         ( updatedModel, cmd ) =
                             Update.update
                                 (Msg.Input "Just another beer company")
-                                { term = "Cruel beer company", result = [], label = "" }
+                                { term = "Cruel beer company", result = [], label = "", userSearching = True }
                                 validCompanies
                     in
                         Expect.equal updatedModel.term "Just another beer company"
@@ -53,8 +53,28 @@ tests =
                         ( updatedModel, cmd ) =
                             Update.update
                                 (Msg.Input firstCompany.name)
-                                { term = "", result = [], label = "" }
+                                { term = "", result = [], label = "", userSearching = True }
                                 validCompanies
                     in
                         Expect.equalLists updatedModel.result [ firstCompany ]
+            , test "that when input focus the user searching flag is set true" <|
+                \() ->
+                    let
+                        ( updatedModel, cmd ) =
+                            Update.update
+                                (Msg.Focus True)
+                                { term = "", result = [], label = "", userSearching = False }
+                                validCompanies
+                    in
+                        Expect.true "the userSearching should be true" updatedModel.userSearching
+            , test "that when input blur the user searching flag is set false" <|
+                \() ->
+                    let
+                        ( updatedModel, cmd ) =
+                            Update.update
+                                (Msg.Focus False)
+                                { term = "", result = [], label = "", userSearching = True }
+                                validCompanies
+                    in
+                        Expect.false "the userSearching should be false" updatedModel.userSearching
             ]
