@@ -7,6 +7,9 @@ import Layout.Home.View
 import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
 import Companies.Service as CompaniesService
+import Router.Msg
+import Router.Model
+import Router.Update
 import Search.Filters
 import Navigation
 
@@ -26,13 +29,19 @@ model =
         }
     , companies =
         []
-    , currentUrl = ""
+    , router =
+        { page = Router.Model.Home
+        }
     }
 
 
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
-    ( { model | currentUrl = location.pathname }, CompaniesService.getCompanies )
+    let
+        routerModel =
+            { page = Router.Model.locationToPage location }
+    in
+        ( { model | router = routerModel }, CompaniesService.getCompanies )
 
 
 
@@ -65,8 +74,8 @@ update msg model =
             in
                 ( { model | companies = companiesModel }, cmd )
 
-        Msgs.UrlChange location ->
-            ( { model | currentUrl = location.pathname }, Cmd.none )
+        Router msg ->
+            ( model, Cmd.none )
 
 
 
@@ -84,7 +93,10 @@ subscriptions model =
 
 main : Program Never Model Msg
 main =
-    Navigation.program Msgs.UrlChange
+    Navigation.program
+        (Msgs.Router
+            << Router.Msg.UrlChange
+        )
         { init = init
         , view = view
         , update = update
