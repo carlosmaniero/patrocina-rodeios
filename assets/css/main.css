@@ -70,12 +70,24 @@ header.main-header h1 {
 }
 
 .search .search-quick-view {
-    background: #fff;
     width: 100%;
     border: 0.01rem solid #000000;
     border-radius: 1.5rem;
-    padding: 1rem;
     margin-top: 0.5rem;
     font-size: 2.5rem;
     transition: opacity 0.25s ease-out;
+}
+
+.search .search-quick-view .search-quick-view-list li {
+    background: #fff;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    transition: background 0.25s ease-out;
+    padding: 1rem;
+    width: 100%;
+}
+
+.search .search-quick-view .search-quick-view-list li:hover {
+    background: #dddddd;
 }
