@@ -1,7 +1,7 @@
 module Companies.Service exposing (..)
 
 import Companies.Model exposing (Model)
-import Companies.Update exposing (Msg(CompaniesLoaded))
+import Companies.Msg exposing (Msg(CompaniesLoaded))
 import Companies.Decoder exposing (decodeList)
 import Msgs
 import Http

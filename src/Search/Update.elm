@@ -1,14 +1,12 @@
-module Search.Update exposing (Msg(..), update)
+module Search.Update exposing (update)
 
 import Search.Model exposing (Model)
+import Search.Msg exposing (..)
+import Msgs
 
 
-type Msg
-    = Input String
-
-
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msgs.Msg )
 update msg model =
     case msg of
         Input term ->
-            { model | term = term }
+            ( { model | term = term }, Cmd.none )

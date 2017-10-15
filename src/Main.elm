@@ -31,7 +31,9 @@ model =
         , subtitle = "Descubra quais são as empresas que patrocinam rodeios."
         }
     , search =
-        { term = "" }
+        { term = ""
+        , result = []
+        }
     , companies =
         []
     }
@@ -63,10 +65,18 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Search msg ->
-            ( { model | search = SearchUpdate.update msg model.search }, Cmd.none )
+            let
+                ( searchModel, cmd ) =
+                    SearchUpdate.update msg model.search
+            in
+                ( { model | search = searchModel }, cmd )
 
         Companies msg ->
-            ( { model | companies = CompaniesUpdate.update msg model.companies }, Cmd.none )
+            let
+                ( companiesModel, cmd ) =
+                    CompaniesUpdate.update msg model.companies
+            in
+                ( { model | companies = companiesModel }, cmd )
 
 
 

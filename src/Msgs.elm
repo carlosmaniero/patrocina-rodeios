@@ -1,9 +1,9 @@
 module Msgs exposing (Msg(..))
 
-import Search.Update as SearchUpdate
-import Companies.Update as CompaniesUpdate
+import Search.Msg as SearchMsg
+import Companies.Msg as CompaniesMsg
 
 
 type Msg
-    = Search SearchUpdate.Msg
-    | Companies CompaniesUpdate.Msg
+    = Search SearchMsg.Msg
+    | Companies CompaniesMsg.Msg

@@ -1,6 +1,7 @@
 module Companies.UpdateSpec exposing (..)
 
 import Companies.Update as Update
+import Companies.Msg as Msg
 import Test exposing (..)
 import Expect
 import Http
@@ -20,7 +21,8 @@ tests =
                           }
                         ]
                 in
-                    Update.update (Update.CompaniesLoaded <| Ok companyList) []
+                    Update.update (Msg.CompaniesLoaded <| Ok companyList) []
+                        |> Tuple.first
                         |> Expect.equalLists companyList
         , test "that given an error request the model is not updated" <|
             \() ->
@@ -33,6 +35,7 @@ tests =
                           }
                         ]
                 in
-                    Update.update (Update.CompaniesLoaded <| Err Http.NetworkError) companyList
+                    Update.update (Msg.CompaniesLoaded <| Err Http.NetworkError) companyList
+                        |> Tuple.first
                         |> Expect.equalLists companyList
         ]

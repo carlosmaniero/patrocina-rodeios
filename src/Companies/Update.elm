@@ -1,18 +1,16 @@
 module Companies.Update exposing (..)
 
 import Companies.Model exposing (Model)
+import Companies.Msg as Msg
+import Msgs
 import Http
 
 
-type Msg
-    = CompaniesLoaded (Result Http.Error (List Model))
-
-
-update : Msg -> List Model -> List Model
+update : Msg.Msg -> List Model -> ( List Model, Cmd Msgs.Msg )
 update msg model =
     case msg of
-        CompaniesLoaded (Ok companies) ->
-            companies
+        Msg.CompaniesLoaded (Ok companies) ->
+            ( companies, Cmd.none )
 
-        CompaniesLoaded (Err _) ->
-            model
+        Msg.CompaniesLoaded (Err _) ->
+            ( model, Cmd.none )

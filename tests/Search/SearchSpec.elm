@@ -2,6 +2,7 @@ module Search.SearchSpec exposing (..)
 
 import Search.View exposing (search)
 import Search.Update as Update
+import Search.Msg as Msg
 import Msgs
 import Html.Attributes as Attributes
 import Test exposing (..)
@@ -19,12 +20,12 @@ tests =
                     Query.find [ Selector.tag "input" ] <|
                         Query.fromHtml <|
                             search <|
-                                { term = "Cruel Company" }
-        , test "that search throw the search input event when user types" <|
+                                { term = "Cruel Company", result = [] }
+        , test "that search throws the search input event when user types" <|
             \() ->
-                Event.expect ((Msgs.Search << Update.Input) "a") <|
+                Event.expect ((Msgs.Search << Msg.Input) "a") <|
                     Event.simulate (Event.input "a") <|
                         Query.find [ Selector.tag "input" ] <|
                             Query.fromHtml <|
-                                search { term = "" }
+                                search { term = "", result = [] }
         ]

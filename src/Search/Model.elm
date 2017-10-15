@@ -1,5 +1,9 @@
 module Search.Model exposing (..)
 
+import Companies.Model as CompaniesModel
+
 
 type alias Model =
-    { term : String }
+    { term : String
+    , result : List CompaniesModel.Model
+    }
