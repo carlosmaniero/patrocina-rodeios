@@ -2,11 +2,13 @@ module Search.Update exposing (update)
 
 import Search.Model exposing (Model)
 import Search.Msg exposing (..)
+import Search.Filters exposing (filterCompaniesByName)
+import Companies.Model
 import Msgs
 
 
-update : Msg -> Model -> ( Model, Cmd Msgs.Msg )
-update msg model =
+update : Msg -> Model -> List Companies.Model.Model -> ( Model, Cmd Msgs.Msg )
+update msg model companies =
     case msg of
         Input term ->
-            ( { model | term = term }, Cmd.none )
+            ( { model | term = term, result = filterCompaniesByName term companies }, Cmd.none )

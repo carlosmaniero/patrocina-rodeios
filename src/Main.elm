@@ -53,7 +53,7 @@ view model =
     div []
         [ mainHeader model.header
         , search model.search
-        , renderCompanies (Search.Filters.filterCompaniesByName model.search.term model.companies)
+        , renderCompanies model.search.result
         ]
 
 
@@ -67,7 +67,7 @@ update msg model =
         Search msg ->
             let
                 ( searchModel, cmd ) =
-                    SearchUpdate.update msg model.search
+                    SearchUpdate.update msg model.search model.companies
             in
                 ( { model | search = searchModel }, cmd )
 
