@@ -9,4 +9,5 @@ type alias Model =
     { header : HeaderModel.Model
     , search : SearchModel.Model
     , companies : List CompaniesModel.Model
+    , currentUrl : String
     }

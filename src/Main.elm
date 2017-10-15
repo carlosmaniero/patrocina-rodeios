@@ -8,6 +8,7 @@ import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
 import Companies.Service as CompaniesService
 import Search.Filters
+import Navigation
 
 
 -- MODEL
@@ -25,12 +26,13 @@ model =
         }
     , companies =
         []
+    , currentUrl = ""
     }
 
 
-init : ( Model, Cmd Msg )
-init =
-    ( model, CompaniesService.getCompanies )
+init : Navigation.Location -> ( Model, Cmd Msg )
+init location =
+    ( { model | currentUrl = location.pathname }, CompaniesService.getCompanies )
 
 
 
@@ -63,6 +65,9 @@ update msg model =
             in
                 ( { model | companies = companiesModel }, cmd )
 
+        Msgs.UrlChange location ->
+            ( { model | currentUrl = location.pathname }, Cmd.none )
+
 
 
 -- SUBSCRIPTIONS
@@ -79,7 +84,7 @@ subscriptions model =
 
 main : Program Never Model Msg
 main =
-    program
+    Navigation.program Msgs.UrlChange
         { init = init
         , view = view
         , update = update
