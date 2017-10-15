@@ -13,5 +13,4 @@ render model =
     div []
         [ mainHeader model.header
         , search model.search
-        , renderCompanies model.search.result
         ]

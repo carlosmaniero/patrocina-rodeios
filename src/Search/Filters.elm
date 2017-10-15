@@ -5,7 +5,7 @@ import Companies.Model
 
 companyContainsTerm : String -> Companies.Model.Model -> Bool
 companyContainsTerm term company =
-    String.contains (String.toLower term) (String.toLower company.name)
+    String.startsWith (String.toLower term) (String.toLower company.name)
 
 
 filterCompaniesByName : String -> List Companies.Model.Model -> List Companies.Model.Model

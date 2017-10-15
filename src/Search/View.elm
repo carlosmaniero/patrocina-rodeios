@@ -2,6 +2,7 @@ module Search.View exposing (search)
 
 import Search.Model exposing (..)
 import Search.Msg as Msg
+import Companies.Model
 import Msgs
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -16,4 +17,23 @@ search model =
         , div
             [ class "search-field" ]
             [ input [ onInput <| Msgs.Search << Msg.Input, value model.term, placeholder "buscar" ] [] ]
+        , quickView model
         ]
+
+
+quickViewItem : Companies.Model.Model -> Html Msgs.Msg
+quickViewItem company =
+    li [] [ text company.name ]
+
+
+quickView : Model -> Html Msgs.Msg
+quickView model =
+    let
+        visibilityClass =
+            if List.isEmpty model.result then
+                "hidden"
+            else
+                ""
+    in
+        div [ class <| "search-quick-view " ++ visibilityClass ]
+            [ ul [ class "search-quick-view-list" ] <| List.map quickViewItem model.result ]
