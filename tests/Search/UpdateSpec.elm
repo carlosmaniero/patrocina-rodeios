@@ -43,7 +43,7 @@ tests =
                         ( updatedModel, cmd ) =
                             Update.update
                                 (Msg.Input "Just another beer company")
-                                { term = "Cruel beer company", result = [] }
+                                { term = "Cruel beer company", result = [], label = "" }
                                 validCompanies
                     in
                         Expect.equal updatedModel.term "Just another beer company"
@@ -53,7 +53,7 @@ tests =
                         ( updatedModel, cmd ) =
                             Update.update
                                 (Msg.Input firstCompany.name)
-                                { term = "", result = [] }
+                                { term = "", result = [], label = "" }
                                 validCompanies
                     in
                         Expect.equalLists updatedModel.result [ firstCompany ]

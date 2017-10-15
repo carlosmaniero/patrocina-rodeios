@@ -7,7 +7,6 @@ import Html.Attributes exposing (..)
 
 mainHeader : Model -> Html msg
 mainHeader model =
-    header []
+    header [ class "main-header" ]
         [ h1 [] [ text model.title ]
-        , h2 [] [ text model.subtitle ]
         ]

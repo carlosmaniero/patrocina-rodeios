@@ -16,16 +16,5 @@ tests =
                     Query.find [ Selector.tag "h1" ] <|
                         Query.fromHtml <|
                             mainHeader <|
-                                { title = "Hello, World!"
-                                , subtitle = "My subtitle"
-                                }
-        , test "that header is rendered with the correct subtitle" <|
-            \() ->
-                Query.has [ Selector.text "My subtitle" ] <|
-                    Query.find [ Selector.tag "h2" ] <|
-                        Query.fromHtml <|
-                            mainHeader <|
-                                { title = "Hello, World!"
-                                , subtitle = "My subtitle"
-                                }
+                                { title = "Hello, World!" }
         ]

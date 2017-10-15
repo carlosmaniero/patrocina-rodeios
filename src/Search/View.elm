@@ -10,5 +10,10 @@ import Html.Events exposing (..)
 
 search : Model -> Html Msgs.Msg
 search model =
-    div []
-        [ input [ onInput <| Msgs.Search << Msg.Input, value model.term ] [] ]
+    div [ class "search" ]
+        [ h2 [ class "search-label" ]
+            [ text model.label ]
+        , div
+            [ class "search-field" ]
+            [ input [ onInput <| Msgs.Search << Msg.Input, value model.term, placeholder "buscar" ] [] ]
+        ]

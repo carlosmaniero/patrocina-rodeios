@@ -2,36 +2,24 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Msgs exposing (..)
-import Layout.Header.Model as HeaderModel
-import Layout.Header.View exposing (mainHeader)
-import Search.Model as SearchModel
+import Model exposing (..)
+import Layout.Home.View
 import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
-import Companies.Model as CompaniesModel
 import Companies.Service as CompaniesService
-import Companies.View as CompaniesView exposing (renderCompanies)
-import Search.View exposing (search)
 import Search.Filters
 
 
 -- MODEL
 
 
-type alias Model =
-    { header : HeaderModel.Model
-    , search : SearchModel.Model
-    , companies : List CompaniesModel.Model
-    }
-
-
 model : Model
 model =
     { header =
-        { title = "Patrocina Rodeios"
-        , subtitle = "Descubra quais são as empresas que patrocinam rodeios."
-        }
+        { title = "Patrocina Rodeios" }
     , search =
         { term = ""
+        , label = "Digite o nome da empresa e veja se há envolvimento com redeios"
         , result = []
         }
     , companies =
@@ -50,11 +38,7 @@ init =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ mainHeader model.header
-        , search model.search
-        , renderCompanies model.search.result
-        ]
+    Layout.Home.View.render model
 
 
 
