@@ -25,7 +25,7 @@ update msg model =
                 ( companiesModel, cmd ) =
                     CompaniesUpdate.update msg model.companies
             in
-                ( { model | companies = companiesModel }, cmd )
+                ( { model | companies = companiesModel, loadingCompaniesFile = False }, cmd )
 
         Router msg ->
             ( model, Cmd.none )

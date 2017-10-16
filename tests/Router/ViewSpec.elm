@@ -49,6 +49,7 @@ tests =
                 , result = []
                 , userSearching = False
                 }
+            , loadingCompaniesFile = False
             , companies =
                 validCompanies
             , router =
@@ -77,4 +78,9 @@ tests =
                     Query.has [ Selector.id "page-not-found" ] <|
                         Query.fromHtml <|
                             Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail "company-not-found" } }
+            , test "that it renders the loading page until the companies file be loaded" <|
+                \() ->
+                    Query.has [ Selector.id "page-loading" ] <|
+                        Query.fromHtml <|
+                            Router.View.renderPage { model | loadingCompaniesFile = True }
             ]

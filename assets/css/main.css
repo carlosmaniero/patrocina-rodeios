@@ -158,3 +158,9 @@ header.main-header h1 {
 #page-company .page-company-body .btn {
     margin-right: 1rem;
 }
+
+/* page loading */
+#page-loading .loading-body {
+    color: #ffffff;
+    padding: 1rem;
+}

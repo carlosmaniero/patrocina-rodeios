@@ -11,4 +11,5 @@ type alias Model =
     , search : SearchModel.Model
     , companies : List CompaniesModel.Model
     , router : RouterModel.Model
+    , loadingCompaniesFile : Bool
     }

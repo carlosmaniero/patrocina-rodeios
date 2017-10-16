@@ -25,6 +25,7 @@ model =
         , result = []
         , userSearching = False
         }
+    , loadingCompaniesFile = True
     , companies =
         []
     , router =
