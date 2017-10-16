@@ -28,6 +28,10 @@ tests =
                 \() ->
                     locationToPage { blankLocation | pathname = "/" }
                         |> Expect.equal Home
+            , test "that given a company detail location the model page is updated to home" <|
+                \() ->
+                    locationToPage { blankLocation | pathname = "/company/cruelcompany/" }
+                        |> Expect.equal (CompanyDetail "cruelcompany")
             , test "that given a location with an invalid path the model page is updated to NotFound" <|
                 \() ->
                     locationToPage { blankLocation | pathname = "/this-is-a-route-that-doent-exists" }
@@ -36,4 +40,8 @@ tests =
                 \() ->
                     pageToUrl Home
                         |> Expect.equal "/"
+            , test "that given a company detail page I can get the page url" <|
+                \() ->
+                    pageToUrl (CompanyDetail "cruelcompany")
+                        |> Expect.equal "/company/cruelcompany/"
             ]

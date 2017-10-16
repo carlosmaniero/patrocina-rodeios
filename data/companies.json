@@ -3,12 +3,14 @@
         "name": "Coca-Cola",
         "link": "https://www.vista-se.com.br/coca-cola-e-outras-marcas-conhecidas-dos-brasileiros-patrocinam-rodeio-nos-estados-unidos/",
         "image": "http://www.coca-cola.com/content/dam/GO/CokeZone/Common/global/logo/logodesktop/coca-cola-logo-260x260.png",
-        "twitter": "cocacola_br"
+        "twitter": "cocacola_br",
+        "slug": "cocacola"
     },
     {
         "name": "Brahma",
         "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
         "image": "https://upload.wikimedia.org/wikipedia/pt/f/fa/Brahma.png",
-        "twitter": "brahmacerveja"
+        "twitter": "brahmacerveja",
+        "slug": "brahma"
     }
 ]

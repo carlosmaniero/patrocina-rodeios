@@ -17,3 +17,6 @@ renderPage model =
 
         Router.Model.NotFound ->
             Layout.NotFound.View.render model
+
+        Router.Model.CompanyDetail _ ->
+            Layout.NotFound.View.render model
