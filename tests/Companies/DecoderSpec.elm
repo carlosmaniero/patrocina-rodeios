@@ -17,7 +17,8 @@ tests =
                           { "name" : "Fucking company",
                             "link" : "http://fucking-company.com",
                             "image" : "http://fucking-company.com/logo.png",
-                            "twitter": "http://twitter.com/fucking-company" }
+                            "twitter": "http://twitter.com/fucking-company",
+                            "slug": "fuckingcompany" }
                         """
 
                     decodedOutput =
@@ -31,6 +32,7 @@ tests =
                             , link = "http://fucking-company.com"
                             , image = "http://fucking-company.com/logo.png"
                             , twitter = "http://twitter.com/fucking-company"
+                            , slug = "fuckingcompany"
                             }
                         )
         , test "that decoder transform a json list representation in a model list" <|
@@ -41,7 +43,8 @@ tests =
                           [{ "name" : "Fucking company",
                             "link" : "http://fucking-company.com",
                             "image" : "http://fucking-company.com/logo.png",
-                            "twitter": "http://twitter.com/fucking-company" }]
+                            "twitter": "http://twitter.com/fucking-company",
+                            "slug": "fuckingcompany" }]
                         """
 
                     decodedOutput =
@@ -55,6 +58,7 @@ tests =
                               , link = "http://fucking-company.com"
                               , image = "http://fucking-company.com/logo.png"
                               , twitter = "http://twitter.com/fucking-company"
+                              , slug = "fuckingcompany"
                               }
                             ]
                         )

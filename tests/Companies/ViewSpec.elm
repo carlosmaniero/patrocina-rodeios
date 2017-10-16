@@ -16,6 +16,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany"
             }
     in
         describe "Companies"

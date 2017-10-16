@@ -3,13 +3,11 @@ module Main exposing (..)
 import Html exposing (..)
 import Msgs exposing (..)
 import Model exposing (..)
-import Router.View
-import Search.Update as SearchUpdate
-import Companies.Update as CompaniesUpdate
+import Update exposing (..)
 import Companies.Service as CompaniesService
+import Router.View
 import Router.Msg
 import Router.Model
-import Router.Update
 import Search.Filters
 import Navigation
 
@@ -23,7 +21,7 @@ model =
         { title = "Patrocina Rodeios" }
     , search =
         { term = ""
-        , label = "Digite o nome da empresa e veja se há envolvimento com redeios"
+        , label = "Digite o nome da empresa e veja se há envolvimento com rodeios"
         , result = []
         , userSearching = False
         }
@@ -51,31 +49,6 @@ init location =
 view : Model -> Html Msg
 view model =
     Router.View.renderPage model
-
-
-
--- UPDATE
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        Search msg ->
-            let
-                ( searchModel, cmd ) =
-                    SearchUpdate.update msg model.search model.companies
-            in
-                ( { model | search = searchModel }, cmd )
-
-        Companies msg ->
-            let
-                ( companiesModel, cmd ) =
-                    CompaniesUpdate.update msg model.companies
-            in
-                ( { model | companies = companiesModel }, cmd )
-
-        Router msg ->
-            ( model, Cmd.none )
 
 
 

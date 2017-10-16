@@ -13,6 +13,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany"
             }
 
         secondCompany =
@@ -20,13 +21,15 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany2"
             }
 
         thirdCompany =
-            { name = "cruel Music Band"
+            { name = "Cruel Music Band"
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany3"
             }
 
         validCompanies =
