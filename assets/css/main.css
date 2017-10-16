@@ -94,6 +94,11 @@ header.main-header h1 {
 }
 
 .search .search-quick-view .search-quick-view-list li {
+    list-style: none;
+    width: 100%;
+}
+
+.search .search-quick-view .search-quick-view-list li a {
     background: #fff;
     list-style: none;
     cursor: pointer;
@@ -101,9 +106,12 @@ header.main-header h1 {
     transition: background 0.25s ease-out;
     padding: 1rem;
     width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #000000;
 }
 
-.search .search-quick-view .search-quick-view-list li:hover {
+.search .search-quick-view .search-quick-view-list li a:hover {
     background: #dddddd;
 }
 

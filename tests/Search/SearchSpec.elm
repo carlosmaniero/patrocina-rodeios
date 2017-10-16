@@ -76,11 +76,23 @@ tests =
                                         search { term = "", result = validCompanies, label = "Find Companies", userSearching = True }
                     in
                         Expect.all
-                            [ Query.has [ Selector.text "Cruel Company" ]
+                            [ Query.has
+                                [ Selector.attribute <| Attributes.href "/company/cruelcompany/"
+                                , Selector.text "Cruel Company"
+                                ]
+                                << Query.find [ Selector.tag "a" ]
                                 << Query.index 0
-                            , Query.has [ Selector.text "BBQ Food" ]
+                            , Query.has
+                                [ Selector.attribute <| Attributes.href "/company/cruelcompany2/"
+                                , Selector.text "BBQ Food"
+                                ]
+                                << Query.find [ Selector.tag "a" ]
                                 << Query.index 1
-                            , Query.has [ Selector.text "Cruel Music Band" ]
+                            , Query.has
+                                [ Selector.attribute <| Attributes.href "/company/cruelcompany3/"
+                                , Selector.text "Cruel Music Band"
+                                ]
+                                << Query.find [ Selector.tag "a" ]
                                 << Query.index 2
                             , Query.count <|
                                 Expect.equal 3

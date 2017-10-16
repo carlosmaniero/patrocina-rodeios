@@ -7,6 +7,8 @@ import Msgs
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Router.Link
+import Router.Model
 
 
 search : Model -> Html Msgs.Msg
@@ -31,7 +33,8 @@ search model =
 
 quickViewItem : Companies.Model.Model -> Html Msgs.Msg
 quickViewItem company =
-    li [] [ text company.name ]
+    li []
+        [ Router.Link.renderLink (Router.Model.CompanyDetail company.slug) [] [ text company.name ] ]
 
 
 quickView : Model -> Html Msgs.Msg
