@@ -3,6 +3,9 @@
     padding: 0;
 }
 
+html, body {
+    min-height: 100%;
+}
 
 body {
     background-image: url("/assets/img/background.jpg");
@@ -133,6 +136,7 @@ header.main-header h1 {
 /* Company Detail */
 #page-company .page-company-body {
     width: 60rem;
+    max-width: 100%;
     margin: 3rem auto;
 }
 
