@@ -20,7 +20,7 @@ render model =
                 [ text "Ops! Página Não encontrada" ]
             , Router.Link.renderLink
                 Router.Model.Home
-                []
+                [ class "btn" ]
                 [ text "Voltar para a home" ]
             ]
         ]
