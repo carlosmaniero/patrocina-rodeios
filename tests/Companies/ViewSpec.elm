@@ -15,7 +15,7 @@ tests =
             { name = "Cruel Company"
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
-            , twitter = "http://twitter.com/cruel-company"
+            , twitter = "cruel-company"
             , slug = "cruelcompany"
             }
     in
@@ -46,7 +46,7 @@ tests =
                                 renderCompany validCompany
             , test "that company twitter is render correctly" <|
                 \() ->
-                    Query.has [ Selector.attribute <| Attributes.href validCompany.twitter ] <|
+                    Query.has [ Selector.attribute <| Attributes.href <| "https://twitter.com/" ++ validCompany.twitter ] <|
                         Query.find [ Selector.class "company-twitter" ] <|
                             Query.fromHtml <|
                                 renderCompany validCompany

@@ -13,17 +13,19 @@ renderCompany company =
             [ img [ src company.image ] []
             , h2 [] [ text company.name ]
             ]
+        , div [ class "company-alert" ]
+            [ text <| "Infelizmente a " ++ company.name ++ " patrocina rodeios." ]
         , div [ class "company-item-body" ]
             [ a
                 [ href company.link
                 , target "_blank"
-                , class "company-reference"
+                , class "company-reference btn"
                 ]
                 [ text "Fonte" ]
             , a
-                [ href company.twitter
+                [ href <| "https://twitter.com/" ++ company.twitter
                 , target "_blank"
-                , class "company-twitter"
+                , class "company-twitter btn"
                 ]
                 [ text "Twitter da Empresa" ]
             ]

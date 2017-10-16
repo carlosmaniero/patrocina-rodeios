@@ -34,7 +34,7 @@ h2 {
 }
 
 .btn:hover {
-    box-shadow: 0 0 1rem #000000;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
     background: #aaaaaa;
 }
 
@@ -119,4 +119,34 @@ header.main-header h1 {
     text-align: center;
     color: #ffffff;
     margin-bottom: 2rem;
+}
+
+
+/* Company Detail */
+#page-company .page-company-body {
+    width: 60rem;
+    margin: 3rem auto;
+}
+
+#page-company .page-company-body header,
+#page-company .page-company-body .company-item-body {
+    background: #ffffff;
+    line-height: 3rem;
+    padding: 1rem;
+}
+#page-company .page-company-body header img {
+    width: 3rem;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+#page-company .page-company-body header h2 {
+    display: inline-block;
+}
+#page-company .page-company-body .company-alert {
+    background: #6e1d1c;
+    padding: 1rem;
+    color: #fff;
+}
+#page-company .page-company-body .btn {
+    margin-right: 1rem;
 }

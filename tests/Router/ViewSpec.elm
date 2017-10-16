@@ -10,6 +10,36 @@ import Router.View
 tests : Test
 tests =
     let
+        firstCompany =
+            { name = "Cruel Company"
+            , link = "http://cruel-company.com"
+            , image = "http://cruel-company.com/logo.png"
+            , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany"
+            }
+
+        secondCompany =
+            { name = "BBQ Food"
+            , link = "http://cruel-company.com"
+            , image = "http://cruel-company.com/logo.png"
+            , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany2"
+            }
+
+        thirdCompany =
+            { name = "Cruel Music Band"
+            , link = "http://cruel-company.com"
+            , image = "http://cruel-company.com/logo.png"
+            , twitter = "http://twitter.com/cruel-company"
+            , slug = "cruelcompany3"
+            }
+
+        validCompanies =
+            [ firstCompany
+            , secondCompany
+            , thirdCompany
+            ]
+
         model =
             { header =
                 { title = "Patrocina Rodeios" }
@@ -20,7 +50,7 @@ tests =
                 , userSearching = False
                 }
             , companies =
-                []
+                validCompanies
             , router =
                 { page = Router.Model.Home
                 }
@@ -37,4 +67,14 @@ tests =
                     Query.has [ Selector.id "page-not-found" ] <|
                         Query.fromHtml <|
                             Router.View.renderPage { model | router = { page = Router.Model.NotFound } }
+            , test "that company detail page is rendered given a correct company slug" <|
+                \() ->
+                    Query.has [ Selector.id "page-company" ] <|
+                        Query.fromHtml <|
+                            Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail firstCompany.slug } }
+            , test "that company detail page renders not found page given an incorrect company slug" <|
+                \() ->
+                    Query.has [ Selector.id "page-not-found" ] <|
+                        Query.fromHtml <|
+                            Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail "company-not-found" } }
             ]
