@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html exposing (..)
 import Msgs exposing (..)
 import Model exposing (..)
-import Layout.Home.View
+import Router.View
 import Search.Update as SearchUpdate
 import Companies.Update as CompaniesUpdate
 import Companies.Service as CompaniesService
@@ -50,7 +50,7 @@ init location =
 
 view : Model -> Html Msg
 view model =
-    Layout.Home.View.render model
+    Router.View.renderPage model
 
 
 

@@ -23,7 +23,7 @@ tests =
             , password = ""
             }
     in
-        describe "Router Update"
+        describe "Router Model"
             [ test "that given a location with an empty path the model page is updated to home" <|
                 \() ->
                     locationToPage { blankLocation | pathname = "/" }
@@ -32,4 +32,8 @@ tests =
                 \() ->
                     locationToPage { blankLocation | pathname = "/this-is-a-route-that-doent-exists" }
                         |> Expect.equal NotFound
+            , test "that given a page I can get the page url" <|
+                \() ->
+                    pageToUrl Home
+                        |> Expect.equal "/"
             ]
