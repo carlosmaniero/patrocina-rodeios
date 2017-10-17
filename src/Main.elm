@@ -9,6 +9,9 @@ import Router.View
 import Router.Msg
 import Router.Model
 import Search.Filters
+import Search.Init
+import Layout.Header.Init
+import Router.Init
 import Navigation
 
 
@@ -17,20 +20,12 @@ import Navigation
 
 model : Model
 model =
-    { header =
-        { title = "Patrocina Rodeios" }
-    , search =
-        { term = ""
-        , label = "Digite o nome da empresa e veja se há envolvimento com rodeios"
-        , result = []
-        , userSearching = False
-        }
+    { header = Layout.Header.Init.init
+    , search = Search.Init.init
     , loadingCompaniesFile = True
     , companies =
         []
-    , router =
-        { page = Router.Model.Home
-        }
+    , router = Router.Init.init
     }
 
 
