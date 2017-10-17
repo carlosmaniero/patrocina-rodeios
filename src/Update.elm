@@ -2,12 +2,23 @@ module Update exposing (update)
 
 import Msgs exposing (..)
 import Model
-import Search.Update as SearchUpdate
-import Companies.Update as CompaniesUpdate
+import Search.Update
+import Companies.Update
 import Router.Update
+import Page.CompanyDetail.Update
+import Page.Home.Update
 
 
 -- UPDATE
+
+
+childUpdate : msg -> model -> (msg -> model -> ( model, Cmd Msg )) -> (model -> Model.Model) -> ( Model.Model, Cmd Msg )
+childUpdate msg model pageUpdate modelUpdate =
+    let
+        ( childModel, cmd ) =
+            pageUpdate msg model
+    in
+        ( modelUpdate childModel, cmd )
 
 
 update : Msg -> Model.Model -> ( Model.Model, Cmd Msg )
@@ -16,16 +27,18 @@ update msg model =
         Search msg ->
             let
                 ( searchModel, cmd ) =
-                    SearchUpdate.update msg model.search model.companies
+                    Search.Update.update msg model.search model.companies
             in
                 ( { model | search = searchModel }, cmd )
 
-        Companies msg ->
-            let
-                ( companiesModel, cmd ) =
-                    CompaniesUpdate.update msg model.companies
-            in
-                ( { model | companies = companiesModel, loadingCompaniesFile = False }, cmd )
-
         Router msg ->
-            ( model, Cmd.none )
+            childUpdate msg model.router Router.Update.update <|
+                \childModel -> { model | router = childModel }
+
+        PageCompanyDetail msg ->
+            childUpdate msg model.pageCompanyDetail Page.CompanyDetail.Update.update <|
+                \childModel -> { model | pageCompanyDetail = childModel }
+
+        PageHome msg ->
+            childUpdate msg model.pageHome Page.Home.Update.update <|
+                \childModel -> { model | pageHome = childModel }

@@ -1,12 +1,15 @@
 module Msgs exposing (Msg(..))
 
-import Search.Msg as SearchMsg
-import Companies.Msg as CompaniesMsg
-import Router.Msg as RouterMsg
+import Search.Msg
+import Companies.Msg
+import Router.Msg
+import Page.CompanyDetail.Msgs
+import Page.Home.Msgs
 import Navigation
 
 
 type Msg
-    = Search SearchMsg.Msg
-    | Companies CompaniesMsg.Msg
-    | Router RouterMsg.Msg
+    = Search Search.Msg.Msg
+    | Router Router.Msg.Msg
+    | PageCompanyDetail Page.CompanyDetail.Msgs.Msg
+    | PageHome Page.Home.Msgs.Msg

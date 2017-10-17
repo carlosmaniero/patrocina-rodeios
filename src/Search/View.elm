@@ -11,17 +11,17 @@ import Router.Link
 import Router.Model
 
 
-search : Model -> Html Msgs.Msg
-search model =
+search : (String -> Msgs.Msg) -> (Bool -> Msgs.Msg) -> Model -> Html Msgs.Msg
+search onInputMsg onFocusMsg model =
     div [ class "search" ]
         [ h2 [ class "search-label" ]
             [ text model.label ]
         , div
             [ class "search-field" ]
             [ input
-                [ onInput <| Msgs.Search << Msg.Input
-                , onFocus <| Msgs.Search <| Msg.Focus True
-                , onBlur <| Msgs.Search <| Msg.Focus False
+                [ onInput onInputMsg
+                , onFocus <| onFocusMsg True
+                , onBlur <| onFocusMsg False
                 , value model.term
                 , placeholder "buscar"
                 ]

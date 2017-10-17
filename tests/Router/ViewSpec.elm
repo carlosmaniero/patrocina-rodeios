@@ -5,6 +5,7 @@ import Test.Html.Query as Query
 import Test.Html.Selector as Selector
 import Router.Model
 import Router.View
+import Model
 
 
 tests : Test
@@ -40,22 +41,11 @@ tests =
             , thirdCompany
             ]
 
+        baseModel =
+            Model.model
+
         model =
-            { header =
-                { title = "Patrocina Rodeios" }
-            , search =
-                { term = ""
-                , label = "Digite o nome da empresa e veja se há envolvimento com redeios"
-                , result = []
-                , userSearching = False
-                }
-            , loadingCompaniesFile = False
-            , companies =
-                validCompanies
-            , router =
-                { page = Router.Model.Home
-                }
-            }
+            { baseModel | companies = validCompanies }
     in
         describe "Router View"
             [ test "that home page is rendered when the current page is Home" <|
@@ -73,14 +63,4 @@ tests =
                     Query.has [ Selector.id "page-company" ] <|
                         Query.fromHtml <|
                             Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail firstCompany.slug } }
-            , test "that company detail page renders not found page given an incorrect company slug" <|
-                \() ->
-                    Query.has [ Selector.id "page-not-found" ] <|
-                        Query.fromHtml <|
-                            Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail "company-not-found" } }
-            , test "that it renders the loading page until the companies file be loaded" <|
-                \() ->
-                    Query.has [ Selector.id "page-loading" ] <|
-                        Query.fromHtml <|
-                            Router.View.renderPage { model | loadingCompaniesFile = True }
             ]
