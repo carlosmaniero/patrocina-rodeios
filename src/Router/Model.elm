@@ -2,6 +2,7 @@ module Router.Model exposing (..)
 
 import Navigation
 import Regex
+import UrlParser exposing ((</>))
 
 
 homeUrl =
@@ -26,27 +27,22 @@ type alias Model =
     { page : Page }
 
 
+route : UrlParser.Parser (Page -> a) a
+route =
+    UrlParser.oneOf
+        [ UrlParser.map Home (UrlParser.s "")
+        , UrlParser.map CompanyDetail (UrlParser.s "company" </> UrlParser.string)
+        ]
+
+
 locationToPage : Navigation.Location -> Page
 locationToPage location =
-    if location.pathname == homeUrl then
-        Home
-    else
-        let
-            match =
-                Regex.find (Regex.AtMost 1) companyUrlPattern location.pathname
-        in
-            case List.head match of
-                Just companyMatch ->
-                    case List.head companyMatch.submatches of
-                        Just companySlug ->
-                            Maybe.withDefault "" companySlug
-                                |> CompanyDetail
+    case UrlParser.parsePath route location of
+        Just page ->
+            page
 
-                        Nothing ->
-                            NotFound
-
-                Nothing ->
-                    NotFound
+        Nothing ->
+            NotFound
 
 
 pageToUrl : Page -> String
