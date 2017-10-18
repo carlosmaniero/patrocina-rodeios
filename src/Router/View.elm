@@ -3,9 +3,8 @@ module Router.View exposing (..)
 import Model exposing (Model)
 import Router.Model
 import Page.Home.View
-import Layout.NotFound.View
-import Layout.Loading.View
 import Page.CompanyDetail.View
+import Page.NotFound.View
 import Msgs
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -18,7 +17,7 @@ renderPage model =
             Page.Home.View.render model.pageHome
 
         Router.Model.NotFound ->
-            Layout.NotFound.View.render model
+            Page.NotFound.View.render model.pageNotFound
 
         Router.Model.CompanyDetail companySlug ->
             Page.CompanyDetail.View.render companySlug model.pageCompanyDetail

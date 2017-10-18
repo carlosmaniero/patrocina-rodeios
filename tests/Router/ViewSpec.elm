@@ -11,41 +11,8 @@ import Model
 tests : Test
 tests =
     let
-        firstCompany =
-            { name = "Cruel Company"
-            , link = "http://cruel-company.com"
-            , image = "http://cruel-company.com/logo.png"
-            , twitter = "http://twitter.com/cruel-company"
-            , slug = "cruelcompany"
-            }
-
-        secondCompany =
-            { name = "BBQ Food"
-            , link = "http://cruel-company.com"
-            , image = "http://cruel-company.com/logo.png"
-            , twitter = "http://twitter.com/cruel-company"
-            , slug = "cruelcompany2"
-            }
-
-        thirdCompany =
-            { name = "Cruel Music Band"
-            , link = "http://cruel-company.com"
-            , image = "http://cruel-company.com/logo.png"
-            , twitter = "http://twitter.com/cruel-company"
-            , slug = "cruelcompany3"
-            }
-
-        validCompanies =
-            [ firstCompany
-            , secondCompany
-            , thirdCompany
-            ]
-
-        baseModel =
-            Model.model
-
         model =
-            { baseModel | companies = validCompanies }
+            Model.model
     in
         describe "Router View"
             [ test "that home page is rendered when the current page is Home" <|
@@ -62,5 +29,5 @@ tests =
                 \() ->
                     Query.has [ Selector.id "page-company" ] <|
                         Query.fromHtml <|
-                            Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail firstCompany.slug } }
+                            Router.View.renderPage { model | router = { page = Router.Model.CompanyDetail "cruelcompany" } }
             ]

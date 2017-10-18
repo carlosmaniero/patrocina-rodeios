@@ -1,7 +1,6 @@
-module Layout.NotFound.View exposing (..)
+module Page.NotFound.View exposing (..)
 
-import Companies.View as CompaniesView exposing (renderCompanies)
-import Search.View exposing (search)
+import Page.NotFound.Models
 import Layout.Header.View exposing (mainHeader)
 import Msgs
 import Model exposing (..)
@@ -11,7 +10,7 @@ import Router.Link
 import Router.Model
 
 
-render : Model -> Html Msgs.Msg
+render : Page.NotFound.Models.Model -> Html Msgs.Msg
 render model =
     div [ id "page-not-found" ]
         [ mainHeader model.header

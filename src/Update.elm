@@ -2,7 +2,6 @@ module Update exposing (update)
 
 import Msgs exposing (..)
 import Model
-import Search.Update
 import Companies.Update
 import Router.Update
 import Page.CompanyDetail.Update
@@ -24,13 +23,6 @@ childUpdate msg model pageUpdate modelUpdate =
 update : Msg -> Model.Model -> ( Model.Model, Cmd Msg )
 update msg model =
     case msg of
-        Search msg ->
-            let
-                ( searchModel, cmd ) =
-                    Search.Update.update msg model.search model.companies
-            in
-                ( { model | search = searchModel }, cmd )
-
         Router msg ->
             childUpdate msg model.router Router.Update.update <|
                 \childModel -> { model | router = childModel }

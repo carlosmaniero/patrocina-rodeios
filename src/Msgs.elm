@@ -9,7 +9,6 @@ import Navigation
 
 
 type Msg
-    = Search Search.Msg.Msg
-    | Router Router.Msg.Msg
+    = Router Router.Msg.Msg
     | PageCompanyDetail Page.CompanyDetail.Msgs.Msg
     | PageHome Page.Home.Msgs.Msg

@@ -4,7 +4,6 @@ import Page.CompanyDetail.Models
 import Companies.View as CompaniesView exposing (renderCompany)
 import Companies.Model exposing (findBySlug)
 import Layout.Header.View exposing (mainHeader)
-import Layout.NotFound.View
 import Msgs
 import Model exposing (..)
 import Html exposing (..)
