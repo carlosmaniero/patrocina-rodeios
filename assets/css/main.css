@@ -12,6 +12,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Abel', sans-serif;
+    font-size: 10px;
 }
 
 h1 {
@@ -72,10 +73,11 @@ header.main-header h1 {
     width: 100%;
     border: 0.01rem solid #000000;
     border-radius: 2.5rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     font-size: 2.5rem;
     font-family: 'Abel', sans-serif;
     transition: box-shadow 0.5s ease-out;
+    box-sizing: border-box;
 }
 
 .search .search-field input:focus {
@@ -112,6 +114,7 @@ header.main-header h1 {
     display: block;
     text-decoration: none;
     color: #000000;
+    box-sizing: border-box;
 }
 
 .search .search-quick-view .search-quick-view-list li a:hover {
@@ -153,14 +156,18 @@ header.main-header h1 {
 }
 #page-company .page-company-body header h2 {
     display: inline-block;
+    font-size: 1.5rem;
+    vertical-align: middle;
 }
 #page-company .page-company-body .company-alert {
     background: #6e1d1c;
     padding: 1rem;
     color: #fff;
+    font-size: 1rem;
 }
 #page-company .page-company-body .btn {
     margin-right: 1rem;
+    font-size: 1rem;
 }
 
 /* page loading */
