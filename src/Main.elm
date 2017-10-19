@@ -9,33 +9,12 @@ import Router.View
 import Router.Msg
 import Router.Model
 import Search.Filters
-import Search.Init
-import Layout.Header.Init
-import Router.Init
 import Navigation
-
-
--- MODEL
-
-
-model : Model
-model =
-    { header = Layout.Header.Init.init
-    , search = Search.Init.init
-    , loadingCompaniesFile = True
-    , companies =
-        []
-    , router = Router.Init.init
-    }
 
 
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
-    let
-        routerModel =
-            { page = Router.Model.locationToPage location }
-    in
-        ( { model | router = routerModel }, CompaniesService.getCompanies )
+    update (Msgs.Router <| Router.Msg.UrlChange location) model
 
 
 

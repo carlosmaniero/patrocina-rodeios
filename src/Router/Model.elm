@@ -10,7 +10,7 @@ homeUrl =
 
 
 notFoundUrl =
-    "not-found"
+    "/not-found"
 
 
 companyUrlPattern =
