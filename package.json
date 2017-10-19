@@ -9,7 +9,8 @@
   "scripts": {
     "test": "elm-test",
     "run-dev": "elm-live --output=elm.js src/Main.elm --pushstate --debug --host=0.0.0.0",
-    "install-elm-packages": "elm-package install -y && cd tests && elm-package install -y && cd ../"
+    "install-elm-packages": "elm-package install -y && cd tests && elm-package install -y && cd ../",
+    "build-prod": "elm-make src/Main.elm --output=elm.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "dependencies": {
     "elm": "^0.18.0",
     "elm-live": "^2.7.5",
-    "elm-test": "^0.18.9"
+    "elm-test": "^0.18.9",
+    "spa-server": "^1.0.0"
   }
 }
