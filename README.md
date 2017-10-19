@@ -8,25 +8,18 @@ Listagem de empresas que estão envolvidas no patrocínio de rodeios.
 
 Essa é uma aplicação desenvolvida usando Elm.
 
-## Instalando o Elm
+## Instalando dependências
 
-    npm install -g elm elm-live
+    npm install
 
-# Baixando dependências
+# Baixando dependências do Elm
 
-    elm-package install
+    npm run install-elm-packages
 
-## Executando
+## Executando o servidor de desenvolvimento
 
-    elm-live --output=elm.js src/Main.elm --pushstate --open --debug
+    npm run server-dev
 
-## Testando
+## Executando os testes:
 
-Para executar os testes é necessário baixar as dependências da pasta `test`
-
-    cd tests
-    elm-package install
-
-Em seguida executar o comando:
-
-    elm-test
+    npm test
