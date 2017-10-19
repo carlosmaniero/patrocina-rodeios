@@ -87,6 +87,7 @@ header.main-header h1 {
 .search .search-quick-view.hidden {
     opacity: 0;
     transition: opacity 0s linear;
+    visibility: hidden;
 }
 
 .search .search-quick-view {
