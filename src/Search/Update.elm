@@ -15,6 +15,18 @@ type MoveQuickView
     | MoveQuickViewUp
 
 
+keyArrowDownCode =
+    40
+
+
+keyArrowUpCode =
+    38
+
+
+keyReturnCode =
+    13
+
+
 updateSelected : MoveQuickView -> Model -> Model
 updateSelected moveTo model =
     let
@@ -54,11 +66,11 @@ update msg model companies =
                 ( { resetedModel | userSearching = isFocus }, Cmd.none )
 
             KeyDown key ->
-                if key == 40 then
+                if key == keyArrowDownCode then
                     ( updateSelected MoveQuickViewDown model, Cmd.none )
-                else if key == 38 then
+                else if key == keyArrowUpCode then
                     ( updateSelected MoveQuickViewUp model, Cmd.none )
-                else if key == 13 then
+                else if key == keyReturnCode then
                     ( model
                     , case model.selectedCompany of
                         Just company ->
