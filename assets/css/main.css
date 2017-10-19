@@ -49,8 +49,9 @@ header.main-header {
     box-shadow: 0 0 1rem #000000;
 }
 
-header.main-header h1 {
+header.main-header h1 a {
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 /* search */
