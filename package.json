@@ -11,7 +11,8 @@
     "run-dev": "elm-live --output=elm.js src/Main.elm --pushstate --debug --host=0.0.0.0",
     "install-elm-packages": "elm-package install -y && cd tests && elm-package install -y && cd ../",
     "build-prod": "elm-make src/Main.elm --output=elm.js",
-    "server-prod": "node production/server.js"
+    "server-prod": "node production/server.js",
+    "heroku-postbuild": "npm run install-elm-packages; npm run build-prod"
   },
   "repository": {
     "type": "git",
