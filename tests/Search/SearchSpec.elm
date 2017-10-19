@@ -3,6 +3,7 @@ module Search.SearchSpec exposing (..)
 import Search.View exposing (search)
 import Search.Update as Update
 import Search.Msg as Msg
+import Search.Init exposing (init)
 import Msgs
 import Page.Home.Msgs
 import Search.Msg
@@ -11,6 +12,7 @@ import Test exposing (..)
 import Test.Html.Query as Query
 import Test.Html.Selector as Selector
 import Test.Html.Event as Event
+import Json.Encode as Encode exposing (Value)
 import Expect
 
 
@@ -46,6 +48,21 @@ tests =
             , secondCompany
             , thirdCompany
             ]
+
+        searchDefault =
+            search
+                (Msgs.PageHome
+                    << Page.Home.Msgs.Search
+                    << Search.Msg.Input
+                )
+                (Msgs.PageHome
+                    << Page.Home.Msgs.Search
+                    << Search.Msg.Focus
+                )
+                (Msgs.PageHome
+                    << Page.Home.Msgs.Search
+                    << Search.Msg.KeyDown
+                )
     in
         describe "Search"
             [ test "that search renders an text input with the given term" <|
@@ -53,47 +70,23 @@ tests =
                     Query.has [ Selector.attribute <| Attributes.value "Cruel Company" ] <|
                         Query.find [ Selector.tag "input" ] <|
                             Query.fromHtml <|
-                                search
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Input
-                                    )
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Focus
-                                    )
-                                    { term = "Cruel Company", result = [], label = "", userSearching = True }
+                                searchDefault
+                                    { init | term = "Cruel Company", userSearching = True }
             , test "that search throws the search input event when user types" <|
                 \() ->
                     Event.expect (Msgs.PageHome <| Page.Home.Msgs.Search <| Msg.Input "text-typed") <|
                         Event.simulate (Event.input "text-typed") <|
                             Query.find [ Selector.tag "input" ] <|
                                 Query.fromHtml <|
-                                    search
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Input
-                                        )
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Focus
-                                        )
-                                        { term = "", result = [], label = "", userSearching = True }
+                                    searchDefault
+                                        { init | userSearching = True }
             , test "that search renders the label" <|
                 \() ->
                     Query.has [ Selector.text "Find Companies" ] <|
                         Query.find [ Selector.tag "h2" ] <|
                             Query.fromHtml <|
-                                search
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Input
-                                    )
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Focus
-                                    )
-                                    { term = "", result = [], label = "Find Companies", userSearching = True }
+                                searchDefault
+                                    { init | label = "Find Companies", userSearching = True }
             , test "that search renders quick view given a result" <|
                 \() ->
                     let
@@ -101,16 +94,8 @@ tests =
                             Query.findAll [ Selector.tag "li" ] <|
                                 Query.find [ Selector.class "search-quick-view" ] <|
                                     Query.fromHtml <|
-                                        search
-                                            (Msgs.PageHome
-                                                << Page.Home.Msgs.Search
-                                                << Search.Msg.Input
-                                            )
-                                            (Msgs.PageHome
-                                                << Page.Home.Msgs.Search
-                                                << Search.Msg.Focus
-                                            )
-                                            { term = "", result = validCompanies, label = "Find Companies", userSearching = True }
+                                        searchDefault
+                                            { init | result = validCompanies, userSearching = True }
                     in
                         Expect.all
                             [ Query.has
@@ -140,61 +125,58 @@ tests =
                     Query.has [ Selector.class "hidden" ] <|
                         Query.find [ Selector.class "search-quick-view" ] <|
                             Query.fromHtml <|
-                                search
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Input
-                                    )
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Focus
-                                    )
-                                    { term = "", result = [], label = "Find Companies", userSearching = True }
+                                searchDefault
+                                    { init | result = [], userSearching = True }
             , test "that search quick view is hidden when user is not searching" <|
                 \() ->
                     Query.has [ Selector.class "hidden" ] <|
                         Query.find [ Selector.class "search-quick-view" ] <|
                             Query.fromHtml <|
-                                search
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Input
-                                    )
-                                    (Msgs.PageHome
-                                        << Page.Home.Msgs.Search
-                                        << Search.Msg.Focus
-                                    )
-                                    { term = "", result = validCompanies, label = "Find Companies", userSearching = False }
+                                searchDefault
+                                    { init | userSearching = False }
             , test "that search throws the search focus true event when user enters the input field" <|
                 \() ->
                     Event.expect (Msgs.PageHome <| Page.Home.Msgs.Search <| Msg.Focus True) <|
                         Event.simulate (Event.focus) <|
                             Query.find [ Selector.tag "input" ] <|
                                 Query.fromHtml <|
-                                    search
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Input
-                                        )
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Focus
-                                        )
-                                        { term = "", result = [], label = "", userSearching = False }
+                                    searchDefault
+                                        { init | userSearching = False }
             , test "that search throws the search focus false event when user leaves the input field" <|
                 \() ->
                     Event.expect (Msgs.PageHome <| Page.Home.Msgs.Search <| Msg.Focus False) <|
                         Event.simulate (Event.blur) <|
                             Query.find [ Selector.tag "input" ] <|
                                 Query.fromHtml <|
-                                    search
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Input
-                                        )
-                                        (Msgs.PageHome
-                                            << Page.Home.Msgs.Search
-                                            << Search.Msg.Focus
-                                        )
-                                        { term = "", result = [], label = "", userSearching = True }
+                                    searchDefault
+                                        { init | userSearching = True }
+            , test "that search throws the keydown event when user types" <|
+                \() ->
+                    let
+                        keyDownEvent =
+                            Encode.object
+                                [ ( "keyCode", Encode.int 13 )
+                                ]
+                    in
+                        Event.expect (Msgs.PageHome <| Page.Home.Msgs.Search <| Msg.KeyDown 13) <|
+                            Event.simulate (Event.custom "keydown" keyDownEvent) <|
+                                Query.find [ Selector.tag "input" ] <|
+                                    Query.fromHtml <|
+                                        searchDefault
+                                            { init | userSearching = True }
+            , test "that given a selected company it is showed as active in the quick view" <|
+                \() ->
+                    Query.has [ Selector.class "active" ] <|
+                        Query.index 0 <|
+                            Query.findAll [ Selector.tag "li" ] <|
+                                Query.fromHtml <|
+                                    searchDefault
+                                        { init | selectedCompany = Just firstCompany, result = validCompanies, userSearching = True }
+            , test "that given a selected company its name is rendered in the input field" <|
+                \() ->
+                    Query.has [ Selector.attribute <| Attributes.value firstCompany.name ] <|
+                        Query.find [ Selector.tag "input" ] <|
+                            Query.fromHtml <|
+                                searchDefault
+                                    { init | selectedCompany = Just firstCompany, result = validCompanies, userSearching = True }
             ]

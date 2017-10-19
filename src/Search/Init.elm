@@ -8,5 +8,7 @@ init =
     { term = ""
     , label = "Digite o nome da empresa e veja se há envolvimento com rodeios"
     , result = []
+    , selectedCompany = Nothing
+    , selectedIndex = -1
     , userSearching = False
     }

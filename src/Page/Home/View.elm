@@ -23,5 +23,9 @@ render model =
                 << Page.Home.Msgs.Search
                 << Search.Msg.Focus
             )
+            (Msgs.PageHome
+                << Page.Home.Msgs.Search
+                << Search.Msg.KeyDown
+            )
             model.search
         ]
