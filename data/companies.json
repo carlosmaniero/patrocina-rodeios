@@ -1,5 +1,19 @@
 [
     {
+        "name": "Brahma",
+        "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
+        "image": "https://upload.wikimedia.org/wikipedia/pt/f/fa/Brahma.png",
+        "twitter": "brahmacerveja",
+        "slug": "brahma"
+    },
+    {
+        "name": "Deezer",
+        "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
+        "image": "https://www.filepicker.io/api/file/HGYnRd6gQruIivi6fktI",
+        "twitter": "Deezer",
+        "slug": "deezer"
+    },
+    {
         "name": "Coca-Cola",
         "link": "https://www.vista-se.com.br/coca-cola-e-outras-marcas-conhecidas-dos-brasileiros-patrocinam-rodeio-nos-estados-unidos/",
         "image": "http://www.coca-cola.com/content/dam/GO/CokeZone/Common/global/logo/logodesktop/coca-cola-logo-260x260.png",
@@ -7,10 +21,10 @@
         "slug": "cocacola"
     },
     {
-        "name": "Brahma",
-        "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
-        "image": "https://upload.wikimedia.org/wikipedia/pt/f/fa/Brahma.png",
-        "twitter": "brahmacerveja",
-        "slug": "brahma"
+        "name": "Spotify",
+        "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
+        "image": "https://lh3.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM=w300",
+        "twitter": "spotify",
+        "slug": "spotify"
     }
 ]
