@@ -3,7 +3,6 @@ cache:
   directories:
     - tests/elm-stuff/build-artifacts
 install:
-  - npm install -g elm elm-test
-  - elm-package install -y
-  - cd tests && elm-package install -y && cd ../
-script: elm-test
+  - npm install
+  - npm run install-elm-packages
+script: npm run test

@@ -1,0 +1,29 @@
+{
+  "name": "patrocina-rodeios",
+  "version": "0.0.1",
+  "description": "Lista empresas patrocinadores de rodeios",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "elm-test",
+    "run-dev": "elm-live --output=elm.js src/Main.elm --pushstate --debug --host=0.0.0.0",
+    "install-elm-packages": "elm-package install -y && cd tests && elm-package install -y && cd ../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosmaniero/patrocina-rodeios.git"
+  },
+  "author": "Carlos Maniero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosmaniero/patrocina-rodeios/issues"
+  },
+  "homepage": "https://github.com/carlosmaniero/patrocina-rodeios#readme",
+  "dependencies": {
+    "elm": "^0.18.0",
+    "elm-live": "^2.7.5",
+    "elm-test": "^0.18.9"
+  }
+}
