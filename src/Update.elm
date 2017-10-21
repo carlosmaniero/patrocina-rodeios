@@ -7,6 +7,7 @@ import Router.Update
 import Page.Home.Update
 import Page.CompanyDetail.Update
 import Page.CompanyList.Update
+import Model
 
 
 -- UPDATE
@@ -25,8 +26,12 @@ update : Msg -> Model.Model -> ( Model.Model, Cmd Msg )
 update msg model =
     case msg of
         Router msg ->
-            childUpdate msg model.router Router.Update.update <|
-                \childModel -> { model | router = childModel }
+            let
+                cleanModel =
+                    Model.model
+            in
+                childUpdate msg cleanModel.router Router.Update.update <|
+                    \childModel -> { cleanModel | router = childModel }
 
         PageHome msg ->
             childUpdate msg model.pageHome Page.Home.Update.update <|
