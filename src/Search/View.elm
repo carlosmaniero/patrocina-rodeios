@@ -69,11 +69,25 @@ quickViewItem selected company =
 quickView : Model -> Html Msgs.Msg
 quickView model =
     let
+        companyNotFound =
+            model.term /= "" && model.result == []
+
         visibilityClass =
-            if List.isEmpty model.result || not model.userSearching then
+            if not model.userSearching then
                 "hidden"
             else
                 ""
     in
         div [ class <| "search-quick-view " ++ visibilityClass ]
-            [ ul [ class "search-quick-view-list" ] <| List.map (quickViewItem model.selectedCompany) model.result ]
+            (if companyNotFound then
+                [ div [ class "search-result-error-message" ]
+                    [ p []
+                        [ text <| "Não encontramos a empresa \"" ++ model.term ++ "\"." ]
+                    , Router.Link.renderLink Router.Model.CompanyList [] [ text "Ver lista de empresas que patrocinam rodeios" ]
+                    ]
+                ]
+             else
+                [ ul [ class "search-quick-view-list" ] <|
+                    List.map (quickViewItem model.selectedCompany) model.result
+                ]
+            )

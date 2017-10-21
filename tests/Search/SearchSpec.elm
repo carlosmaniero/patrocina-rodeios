@@ -122,11 +122,11 @@ tests =
                             quickResult
             , test "that search quick view is hidden given no result" <|
                 \() ->
-                    Query.has [ Selector.class "hidden" ] <|
-                        Query.find [ Selector.class "search-quick-view" ] <|
+                    Query.count (Expect.equal 0) <|
+                        Query.findAll [ Selector.tag "ul" ] <|
                             Query.fromHtml <|
                                 searchDefault
-                                    { init | result = [], userSearching = True }
+                                    { init | result = [], userSearching = True, term = "Vegan Company" }
             , test "that search quick view is hidden when user is not searching" <|
                 \() ->
                     Query.has [ Selector.class "hidden" ] <|
@@ -179,4 +179,19 @@ tests =
                             Query.fromHtml <|
                                 searchDefault
                                     { init | selectedCompany = Just firstCompany, result = validCompanies, userSearching = True }
+            , test "that given a search term and no result its render a message that this term was not found" <|
+                \() ->
+                    Query.has [ Selector.text "Não encontramos a empresa \"Vegan Company\"." ] <|
+                        Query.find [ Selector.tag "p" ] <|
+                            Query.find [ Selector.class "search-result-error-message" ] <|
+                                Query.fromHtml <|
+                                    searchDefault
+                                        { init | result = [], term = "Vegan Company" }
+            , test "that given a search term and no result its render a link for the company list" <|
+                \() ->
+                    Query.has [ Selector.attribute <| Attributes.href "/companies/" ] <|
+                        Query.find [ Selector.class "search-result-error-message" ] <|
+                            Query.fromHtml <|
+                                searchDefault
+                                    { init | result = [], term = "Vegan Company" }
             ]

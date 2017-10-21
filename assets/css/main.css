@@ -8,7 +8,7 @@ html, body {
 }
 
 html {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 body {
@@ -76,12 +76,13 @@ header.main-header h1 a {
 }
 
 header.main-header + * {
-    margin-top: 7rem;
+    margin-top: 10rem;
 }
 
 /* search */
 .search {
     margin: 0 auto;
+    width: 100%;
 }
 .search .search-label {
     font-size: 2rem;
@@ -128,7 +129,7 @@ header.main-header + * {
     list-style: none;
     width: 100%;
 }
-
+.search .search-quick-view .search-result-error-message,
 .search .search-quick-view .search-quick-view-list li a {
     background: #fff;
     list-style: none;
@@ -148,6 +149,11 @@ header.main-header + * {
     background: #dddddd;
 }
 
+.search .search-quick-view .search-result-error-message a {
+    font-size: 1rem;
+    color: #000000;
+}
+
 
 /* Page Not Found */
 #page-not-found .not-found-body {
@@ -163,7 +169,6 @@ header.main-header + * {
 
 /* Pages */
 .page-body {
-    width: 60rem;
     max-width: 100%;
     margin: 3rem auto;
     background: #ffffff;
@@ -236,18 +241,26 @@ header.main-header + * {
 }
 
 
-@media (max-width: 1000px) {
+@media (min-width: 1000px) {
     html {
-        font-size: 12px;
+        font-size: 16px;
     }
-    .search {
-        width: 90%;
+    #page-home .search {
+        width: 60%;
+        left: 20%;
     }
     .page-body {
-        width: 100%;
+        width: 60%;
     }
 
     header.main-header + * {
-        margin-top: 10rem;
+        margin-top: 7rem;
+    }
+}
+
+@media (min-width: 1500px) {
+    #page-home .search {
+        width: 40%;
+        left: 30%;
     }
 }
