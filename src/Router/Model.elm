@@ -13,13 +13,18 @@ notFoundUrl =
     "/not-found"
 
 
-companyUrlPattern =
-    Regex.regex "/company/(\\w+)/?$"
+companyListUrl =
+    "/companies/"
+
+
+companyDetailUrl =
+    "/company/"
 
 
 type Page
     = Home
     | CompanyDetail String
+    | CompanyList
     | NotFound
 
 
@@ -31,6 +36,7 @@ route : UrlParser.Parser (Page -> a) a
 route =
     UrlParser.oneOf
         [ UrlParser.map Home (UrlParser.s "")
+        , UrlParser.map CompanyList (UrlParser.s "companies")
         , UrlParser.map CompanyDetail (UrlParser.s "company" </> UrlParser.string)
         ]
 
@@ -55,4 +61,7 @@ pageToUrl page =
             notFoundUrl
 
         CompanyDetail companySlug ->
-            "/company/" ++ companySlug ++ "/"
+            companyDetailUrl ++ companySlug ++ "/"
+
+        CompanyList ->
+            companyListUrl

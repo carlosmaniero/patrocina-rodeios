@@ -18,7 +18,7 @@ render companySlug model =
             case model.company of
                 Just company ->
                     [ mainHeader model.header
-                    , div [ class "page-company-body" ]
+                    , div [ class "page-company-body page-body" ]
                         [ renderCompany company ]
                     ]
 

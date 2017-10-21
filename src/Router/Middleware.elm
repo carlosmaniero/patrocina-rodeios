@@ -2,6 +2,7 @@ module Router.Middleware exposing (onEnterCmd)
 
 import Router.Model
 import Page.CompanyDetail.Middleware
+import Page.CompanyList.Middleware
 import Page.Home.Middleware
 import Msgs
 
@@ -17,3 +18,6 @@ onEnterCmd page =
 
         Router.Model.NotFound ->
             Cmd.none
+
+        Router.Model.CompanyList ->
+            Page.CompanyList.Middleware.onEnterCmd

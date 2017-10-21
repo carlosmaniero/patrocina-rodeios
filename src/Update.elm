@@ -4,8 +4,9 @@ import Msgs exposing (..)
 import Model
 import Companies.Update
 import Router.Update
-import Page.CompanyDetail.Update
 import Page.Home.Update
+import Page.CompanyDetail.Update
+import Page.CompanyList.Update
 
 
 -- UPDATE
@@ -27,10 +28,14 @@ update msg model =
             childUpdate msg model.router Router.Update.update <|
                 \childModel -> { model | router = childModel }
 
+        PageHome msg ->
+            childUpdate msg model.pageHome Page.Home.Update.update <|
+                \childModel -> { model | pageHome = childModel }
+
         PageCompanyDetail msg ->
             childUpdate msg model.pageCompanyDetail Page.CompanyDetail.Update.update <|
                 \childModel -> { model | pageCompanyDetail = childModel }
 
-        PageHome msg ->
-            childUpdate msg model.pageHome Page.Home.Update.update <|
-                \childModel -> { model | pageHome = childModel }
+        PageCompanyList msg ->
+            childUpdate msg model.pageCompanyList Page.CompanyList.Update.update <|
+                \childModel -> { model | pageCompanyList = childModel }

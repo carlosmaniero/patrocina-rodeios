@@ -13,4 +13,8 @@ mainHeader model =
     header [ class "main-header" ]
         [ h1 []
             [ Router.Link.renderLink Router.Model.Home [] [ text model.title ] ]
+        , nav []
+            [ ul []
+                [ li [] [ Router.Link.renderLink Router.Model.CompanyList [ class "btn" ] [ text "Lista de empresas" ] ] ]
+            ]
         ]
