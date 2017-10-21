@@ -15,7 +15,12 @@ companyListItem : Companies.Model.Model -> Html Msgs.Msg
 companyListItem company =
     li
         [ class "company-list-item" ]
-        [ Router.Link.renderLink (Router.Model.CompanyDetail company.slug) [] [ text company.name ] ]
+        [ Router.Link.renderLink (Router.Model.CompanyDetail company.slug)
+            []
+            [ img [ src company.image ] []
+            , text company.name
+            ]
+        ]
 
 
 render : Page.CompanyList.Models.Model -> Html Msgs.Msg
@@ -33,5 +38,10 @@ render model =
                     companyListItem
                     model.companies
                 )
+            , footer []
+                [ h3 [] [ text "Sugerir empresa" ]
+                , p [] [ text "Quer sugerir uma empresa que não está na lista? Clique no botão abaixo." ]
+                , a [ href "https://docs.google.com/forms/d/14VGatuc-35Fc0EP_eO53XAhJyc9vSabfEKishTEUduo", class "btn" ] [ text "Sugerir empresa" ]
+                ]
             ]
         ]

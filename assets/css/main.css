@@ -32,6 +32,8 @@ h2 {
 
 p {
     font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+
 }
 
 *:focus {
@@ -42,12 +44,13 @@ p {
 .btn {
     background: #cccccc;
     padding: 0.5rem 1.5rem;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     color: #000000;
     text-decoration: none;
     font-size: 1.2rem;
     transition: box-shadow 0.25s ease-out, background 0.25s ease-out;
     white-space: nowrap;
+    display: inline-block;
 }
 
 .btn:hover {
@@ -199,7 +202,6 @@ header.main-header + * {
 #page-company .page-company-body header,
 #page-company .page-company-body .company-item-body {
     background: #ffffff;
-    line-height: 3rem;
     padding: 1rem;
 }
 #page-company .page-company-body header img {
@@ -219,13 +221,18 @@ header.main-header + * {
 }
 #page-company .page-company-body .btn {
     margin-right: 1rem;
-    font-size: 1rem;
 }
 
 /* Page Company List */
 #page-company-list ul {
     font-size: 1.25rem;
     list-style: none;
+}
+
+#page-company-list ul.company-list li img {
+    width: 2.5rem;
+    vertical-align: middle;
+    margin-right: 1rem;
 }
 
 #page-company-list ul.company-list li a {
@@ -241,6 +248,10 @@ header.main-header + * {
     background: #eeeeee;
 }
 
+#page-company-list footer {
+    margin-top: 2rem;
+}
+
 
 @media (min-width: 1000px) {
     html {
@@ -254,14 +265,11 @@ header.main-header + * {
         width: 60%;
     }
 
+    header.main-header {
+        padding: 2rem 20%;
+    }
+
     header.main-header + * {
         margin-top: 7rem;
-    }
-}
-
-@media (min-width: 1500px) {
-    #page-home .search {
-        width: 40%;
-        left: 30%;
     }
 }
