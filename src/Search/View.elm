@@ -41,6 +41,7 @@ search onInputMsg onFocusMsg onKeyDownMsg model =
                 , onKeyDown <| onKeyDownMsg
                 , value <| renderValue model
                 , placeholder "buscar"
+                , autofocus True
                 ]
                 []
             ]
