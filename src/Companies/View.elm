@@ -16,7 +16,9 @@ renderCompany company =
         , div [ class "company-alert" ]
             [ text <| "Infelizmente a " ++ company.name ++ " patrocina rodeios." ]
         , div [ class "company-item-body" ]
-            [ a
+            [ p [ class "company-info" ]
+                [ text company.info ]
+            , a
                 [ href company.link
                 , target "_blank"
                 , class "company-reference btn"

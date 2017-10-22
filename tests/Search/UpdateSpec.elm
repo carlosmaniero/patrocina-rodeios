@@ -15,6 +15,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , info = "This company sponsoring rodeos"
             , slug = "cruelcompany"
             }
 
@@ -23,6 +24,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , info = "This company sponsoring rodeos"
             , slug = "cruelcompany2"
             }
 
@@ -31,6 +33,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "http://twitter.com/cruel-company"
+            , info = "This company sponsoring rodeos"
             , slug = "cruelcompany3"
             }
 

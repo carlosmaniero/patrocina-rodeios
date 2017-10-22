@@ -6,6 +6,7 @@ type alias Model =
     , link : String
     , image : String
     , twitter : String
+    , info : String
     , slug : String
     }
 

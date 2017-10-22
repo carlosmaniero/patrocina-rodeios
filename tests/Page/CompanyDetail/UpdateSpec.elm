@@ -17,6 +17,7 @@ tests =
                         { name = "Cruel Company"
                         , link = "http://cruel-company.com"
                         , twitter = "http://twitter.com/cruel-company"
+                        , info = "This company sponsoring rodeos"
                         , image = "http://cruel-company.com/logo.png"
                         , slug = "cruelcompany"
                         }

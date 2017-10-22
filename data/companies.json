@@ -4,27 +4,31 @@
         "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
         "image": "https://upload.wikimedia.org/wikipedia/pt/f/fa/Brahma.png",
         "twitter": "brahmacerveja",
+        "info": "A maior patrocinadora de rodeios do país é a cerveja Brahma, que há anos é a patrocinadora master do Rodeio de Barretos. A Brahma pertence à Ambev, uma das maiores empresas do país e que detém a maioria das marcas de cerveja em circulação como Skol, Stella Artois, Antártica, Budweiser, Quilmes, Original, Patrícia, Colorado, Corona, Bohemia e outras.",
         "slug": "brahma"
-    },
-    {
-        "name": "Deezer",
-        "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
-        "image": "https://www.filepicker.io/api/file/HGYnRd6gQruIivi6fktI",
-        "twitter": "Deezer",
-        "slug": "deezer"
     },
     {
         "name": "Coca-Cola",
         "link": "https://www.vista-se.com.br/coca-cola-e-outras-marcas-conhecidas-dos-brasileiros-patrocinam-rodeio-nos-estados-unidos/",
         "image": "http://www.coca-cola.com/content/dam/GO/CokeZone/Common/global/logo/logodesktop/coca-cola-logo-260x260.png",
         "twitter": "cocacola_br",
+        "info": "Desde março de 2017 a empresa mantém uma notícia oficial em seu site onde diz que é uma das principais patrocinadoras de um rodeio em Houston, nos Estados Unidos, desde 1932. Isso significa que a Coca-cola sempre esteve envolvida com os rodeios, ainda que não fosse muito divulgado aqui no Brasil.",
         "slug": "cocacola"
+    },
+    {
+        "name": "Deezer",
+        "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
+        "image": "https://www.filepicker.io/api/file/HGYnRd6gQruIivi6fktI",
+        "twitter": "Deezer",
+        "info": "Em abril de 2017, o Deezer patrocinou o rodeio da cidade de Ribeirão Preto, interior de São Paulo, como é possível ver na capa do site do evento. Além de entrar como patrocinador, o serviço fez um concurso de música sertaneja ligado ao rodeio.",
+        "slug": "deezer"
     },
     {
         "name": "Spotify",
         "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
         "image": "https://lh3.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM=w300",
         "twitter": "spotify",
+        "info": "Em setembro de 2017, o Spotify entrou como apoiador do Jaguariúna Rodeo Festival, um dos maiores rodeios do país, que acontece também no interior de São Paulo.",
         "slug": "spotify"
     }
 ]

@@ -18,6 +18,7 @@ tests =
                             "link" : "http://fucking-company.com",
                             "image" : "http://fucking-company.com/logo.png",
                             "twitter": "http://twitter.com/fucking-company",
+                            "info": "This company sponsoring rodeos",
                             "slug": "fuckingcompany" }
                         """
 
@@ -32,6 +33,7 @@ tests =
                             , link = "http://fucking-company.com"
                             , image = "http://fucking-company.com/logo.png"
                             , twitter = "http://twitter.com/fucking-company"
+                            , info = "This company sponsoring rodeos"
                             , slug = "fuckingcompany"
                             }
                         )
@@ -44,6 +46,7 @@ tests =
                             "link" : "http://fucking-company.com",
                             "image" : "http://fucking-company.com/logo.png",
                             "twitter": "http://twitter.com/fucking-company",
+                            "info": "This company sponsoring rodeos",
                             "slug": "fuckingcompany" }]
                         """
 
@@ -58,6 +61,7 @@ tests =
                               , link = "http://fucking-company.com"
                               , image = "http://fucking-company.com/logo.png"
                               , twitter = "http://twitter.com/fucking-company"
+                              , info = "This company sponsoring rodeos"
                               , slug = "fuckingcompany"
                               }
                             ]

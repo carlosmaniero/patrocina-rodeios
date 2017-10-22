@@ -16,6 +16,7 @@ tests =
             , link = "http://cruel-company.com"
             , image = "http://cruel-company.com/logo.png"
             , twitter = "cruel-company"
+            , info = "This company sponsoring rodeos"
             , slug = "cruelcompany"
             }
     in
@@ -30,6 +31,12 @@ tests =
                 \() ->
                     Query.has [ Selector.attribute <| Attributes.src validCompany.image ] <|
                         Query.find [ Selector.tag "img" ] <|
+                            Query.fromHtml <|
+                                renderCompany validCompany
+            , test "that company render info" <|
+                \() ->
+                    Query.has [ Selector.text validCompany.info ] <|
+                        Query.find [ Selector.class "company-info" ] <|
                             Query.fromHtml <|
                                 renderCompany validCompany
             , test "that company link is render correctly" <|

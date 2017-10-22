@@ -19,6 +19,7 @@ tests =
                           , link = "http://cruel-company.com"
                           , twitter = "http://twitter.com/cruel-company"
                           , image = "http://cruel-company.com/logo.png"
+                          , info = "This company sponsoring rodeos"
                           , slug = "cruelcompany"
                           }
                         ]

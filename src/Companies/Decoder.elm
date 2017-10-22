@@ -12,6 +12,7 @@ decodeModel =
         |> Json.Decode.Pipeline.required "link" Json.Decode.string
         |> Json.Decode.Pipeline.required "image" Json.Decode.string
         |> Json.Decode.Pipeline.required "twitter" Json.Decode.string
+        |> Json.Decode.Pipeline.required "info" Json.Decode.string
         |> Json.Decode.Pipeline.required "slug" Json.Decode.string
 
 

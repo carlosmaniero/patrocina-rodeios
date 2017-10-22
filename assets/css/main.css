@@ -196,7 +196,14 @@ header.main-header + * {
 
 
 /* Company Detail */
-#page-company .page-company-body {
+#page-company  {
+    position: absolute;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
     padding: 0;
 }
 #page-company .page-company-body header,
