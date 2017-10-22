@@ -199,6 +199,7 @@ header.main-header + * {
 #page-company  {
     position: absolute;
     min-height: 100%;
+    width: 100%;
     display: flex;
     flex-flow: column;
     align-items: center;

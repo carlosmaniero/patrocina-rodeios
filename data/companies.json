@@ -1,5 +1,13 @@
 [
     {
+        "name": "Bonafont",
+        "link": "http://www.ribeiraorodeomusic.com.br/",
+        "image": "http://www.bonafont.com.br/image/logo-2017.png",
+        "twitter": "BonafontBrasil",
+        "info": "Em abril de 2017, A Bonafont patrocinou o rodeio da cidade de Ribeirão Preto, interior de São Paulo, como é possível ver na capa do site do evento.",
+        "slug": "bonafont"
+    },
+    {
         "name": "Brahma",
         "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
         "image": "https://upload.wikimedia.org/wikipedia/pt/f/fa/Brahma.png",
