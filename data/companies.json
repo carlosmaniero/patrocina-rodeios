@@ -32,6 +32,22 @@
         "slug": "deezer"
     },
     {
+        "name": "Guaraná Antartica",
+        "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
+        "image": "https://upload.wikimedia.org/wikipedia/en/6/6f/LOGO_GUARANA.jpg",
+        "twitter": "Deezer",
+        "info": "A marca mantém o patrocínio ao Rodeio de Barretos ao longo dos anos. O Guaraná Antartica pertence ao Grupo Ambev.",
+        "slug": "guaranaantartica"
+    },
+    {
+        "name": "Sky",
+        "link": "https://www.vista-se.com.br/conheca-marcas-que-patrocinam-a-exploracao-de-animais-para-o-maior-evento-de-rodeio-do-pais/",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Skybrasil.svg/1200px-Skybrasil.svg.png",
+        "twitter": "skybrasil",
+        "info": "A operadora de TV por assinatura Sky patrocina o maior evento de exploração de animais para rodeio, o Rodeio de Barretos há muitos anos.",
+        "slug": "sky"
+    },
+    {
         "name": "Spotify",
         "link": "https://www.vista-se.com.br/spotify-e-deezer-estao-diretamente-ligados-aos-rodeios-brasileiros-com-apoio-e-patrocinio/",
         "image": "https://lh3.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM=w300",
