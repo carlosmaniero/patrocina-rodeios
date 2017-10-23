@@ -1,4 +1,4 @@
-module Router.Model exposing (..)
+module Router.Models exposing (..)
 
 import Navigation
 import Regex
@@ -65,3 +65,9 @@ pageToUrl page =
 
         CompanyList ->
             companyListUrl
+
+
+init : Model
+init =
+    { page = Home
+    }

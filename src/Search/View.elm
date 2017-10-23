@@ -1,14 +1,14 @@
 module Search.View exposing (search)
 
-import Search.Model exposing (..)
+import Search.Models exposing (..)
 import Search.Msg as Msg
-import Companies.Model
+import Companies.Models
 import Msgs
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Router.Link
-import Router.Model
+import Router.Models
 import Json.Decode as Json
 
 
@@ -49,7 +49,7 @@ search onInputMsg onFocusMsg onKeyDownMsg model =
         ]
 
 
-quickViewItem : Maybe Companies.Model.Model -> Companies.Model.Model -> Html Msgs.Msg
+quickViewItem : Maybe Companies.Models.Model -> Companies.Models.Model -> Html Msgs.Msg
 quickViewItem selected company =
     let
         selectedClass =
@@ -64,7 +64,7 @@ quickViewItem selected company =
                     ""
     in
         li [ class selectedClass ]
-            [ Router.Link.renderLink (Router.Model.CompanyDetail company.slug) [] [ text company.name ] ]
+            [ Router.Link.renderLink (Router.Models.CompanyDetail company.slug) [] [ text company.name ] ]
 
 
 quickView : Model -> Html Msgs.Msg
@@ -84,7 +84,7 @@ quickView model =
                 [ div [ class "search-result-error-message" ]
                     [ p []
                         [ text <| "Não encontramos a empresa \"" ++ model.term ++ "\"." ]
-                    , Router.Link.renderLink Router.Model.CompanyList [] [ text "Ver lista de empresas que patrocinam rodeios" ]
+                    , Router.Link.renderLink Router.Models.CompanyList [] [ text "Ver lista de empresas que patrocinam rodeios" ]
                     ]
                 ]
              else

@@ -2,7 +2,7 @@ module Page.CompanyDetail.Update exposing (update)
 
 import Page.CompanyDetail.Models
 import Page.CompanyDetail.Msgs
-import Router.Model
+import Router.Models
 import Router.Update
 import Msgs
 
@@ -14,4 +14,4 @@ update msg model =
             ( { model | company = Just company }, Cmd.none )
 
         Page.CompanyDetail.Msgs.CompanyDataLoaded (Err _) ->
-            ( model, Router.Update.redirect Router.Model.NotFound )
+            ( model, Router.Update.redirect Router.Models.NotFound )

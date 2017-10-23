@@ -1,6 +1,6 @@
 module Companies.Service exposing (..)
 
-import Companies.Model exposing (Model)
+import Companies.Models exposing (Model)
 import Companies.Msg exposing (Msg(CompaniesLoaded))
 import Companies.Decoder exposing (decodeList, decodeModel)
 import Msgs

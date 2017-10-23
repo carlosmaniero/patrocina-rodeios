@@ -1,4 +1,4 @@
-module Layout.Header.Model exposing (Model, init)
+module Layout.Header.Models exposing (Model, init)
 
 
 type alias Model =

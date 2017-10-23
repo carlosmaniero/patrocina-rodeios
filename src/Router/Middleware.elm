@@ -1,23 +1,23 @@
 module Router.Middleware exposing (onEnterCmd)
 
-import Router.Model
+import Router.Models
 import Page.CompanyDetail.Middleware
 import Page.CompanyList.Middleware
 import Page.Home.Middleware
 import Msgs
 
 
-onEnterCmd : Router.Model.Page -> Cmd Msgs.Msg
+onEnterCmd : Router.Models.Page -> Cmd Msgs.Msg
 onEnterCmd page =
     case page of
-        Router.Model.Home ->
+        Router.Models.Home ->
             Page.Home.Middleware.onEnterCmd
 
-        Router.Model.CompanyDetail page ->
+        Router.Models.CompanyDetail page ->
             Page.CompanyDetail.Middleware.onEnterCmd page
 
-        Router.Model.NotFound ->
+        Router.Models.NotFound ->
             Cmd.none
 
-        Router.Model.CompanyList ->
+        Router.Models.CompanyList ->
             Page.CompanyList.Middleware.onEnterCmd

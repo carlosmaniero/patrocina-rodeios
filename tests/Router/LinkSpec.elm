@@ -6,7 +6,7 @@ import Test exposing (..)
 import Html
 import Html.Attributes as Attributes
 import Router.Link exposing (renderLink)
-import Router.Model exposing (..)
+import Router.Models exposing (..)
 
 
 tests : Test

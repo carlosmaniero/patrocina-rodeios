@@ -1,6 +1,6 @@
 module Companies.Decoder exposing (..)
 
-import Companies.Model exposing (Model)
+import Companies.Models exposing (Model)
 import Json.Decode exposing (..)
 import Json.Decode.Pipeline
 

@@ -2,7 +2,7 @@ module Router.UpdateSpec exposing (..)
 
 import Router.Update as Update
 import Router.Msg as Msg
-import Router.Model exposing (..)
+import Router.Models exposing (..)
 import Test exposing (..)
 import Expect
 

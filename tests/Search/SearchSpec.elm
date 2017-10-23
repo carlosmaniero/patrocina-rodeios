@@ -3,7 +3,7 @@ module Search.SearchSpec exposing (..)
 import Search.View exposing (search)
 import Search.Update as Update
 import Search.Msg as Msg
-import Search.Init exposing (init)
+import Search.Models exposing (init)
 import Msgs
 import Page.Home.Msgs
 import Search.Msg

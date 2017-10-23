@@ -7,7 +7,7 @@ import Update exposing (..)
 import Companies.Service as CompaniesService
 import Router.View
 import Router.Msg
-import Router.Model
+import Router.Models
 import Search.Filters
 import Navigation
 

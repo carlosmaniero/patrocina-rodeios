@@ -1,15 +1,15 @@
 module Router.Update exposing (..)
 
 import Router.Msg exposing (Msg(UrlChange, NewPage))
-import Router.Model exposing (Model, Page(Home, NotFound), locationToPage)
+import Router.Models exposing (Model, Page(Home, NotFound), locationToPage)
 import Router.Middleware
 import Msgs
 import Navigation
 
 
-redirect : Router.Model.Page -> Cmd Msgs.Msg
+redirect : Router.Models.Page -> Cmd Msgs.Msg
 redirect page =
-    Navigation.newUrl (Router.Model.pageToUrl page)
+    Navigation.newUrl (Router.Models.pageToUrl page)
 
 
 update : Msg -> Model -> ( Model, Cmd Msgs.Msg )

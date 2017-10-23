@@ -2,7 +2,7 @@ module Page.CompanyDetail.View exposing (render)
 
 import Page.CompanyDetail.Models
 import Companies.View as CompaniesView exposing (renderCompany)
-import Companies.Model exposing (findBySlug)
+import Companies.Models exposing (findBySlug)
 import Layout.Header.View exposing (mainHeader)
 import Msgs
 import Model exposing (..)

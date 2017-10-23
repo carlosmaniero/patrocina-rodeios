@@ -7,7 +7,7 @@ import Model exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Router.Link
-import Router.Model
+import Router.Models
 
 
 render : Page.NotFound.Models.Model -> Html Msgs.Msg
@@ -18,7 +18,7 @@ render model =
             [ h2 []
                 [ text "Ops! Página Não encontrada" ]
             , Router.Link.renderLink
-                Router.Model.Home
+                Router.Models.Home
                 [ class "btn" ]
                 [ text "Voltar para a home" ]
             ]

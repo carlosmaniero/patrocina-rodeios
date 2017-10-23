@@ -1,6 +1,6 @@
 module Companies.Update exposing (..)
 
-import Companies.Model exposing (Model)
+import Companies.Models exposing (Model)
 import Companies.Msg as Msg
 import Msgs
 import Http

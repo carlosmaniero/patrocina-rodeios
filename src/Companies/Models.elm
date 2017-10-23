@@ -1,4 +1,4 @@
-module Companies.Model exposing (..)
+module Companies.Models exposing (..)
 
 
 type alias Model =

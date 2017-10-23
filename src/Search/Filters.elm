@@ -1,14 +1,14 @@
 module Search.Filters exposing (filterCompaniesByName)
 
-import Companies.Model
+import Companies.Models
 
 
-companyContainsTerm : String -> Companies.Model.Model -> Bool
+companyContainsTerm : String -> Companies.Models.Model -> Bool
 companyContainsTerm term company =
     String.startsWith (String.toLower term) (String.toLower company.name)
 
 
-filterCompaniesByName : String -> List Companies.Model.Model -> List Companies.Model.Model
+filterCompaniesByName : String -> List Companies.Models.Model -> List Companies.Models.Model
 filterCompaniesByName term companies =
     if String.isEmpty term then
         []

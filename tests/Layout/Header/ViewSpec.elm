@@ -1,6 +1,5 @@
 module Layout.Header.ViewSpec exposing (..)
 
-import Layout.Header.Model exposing (Model)
 import Layout.Header.View exposing (mainHeader)
 import Test.Html.Query as Query
 import Test.Html.Selector as Selector

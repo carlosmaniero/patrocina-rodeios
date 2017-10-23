@@ -1,7 +1,7 @@
 module Router.View exposing (..)
 
 import Model exposing (Model)
-import Router.Model
+import Router.Models
 import Page.Home.View
 import Page.CompanyDetail.View
 import Page.CompanyList.View
@@ -14,14 +14,14 @@ import Html.Attributes exposing (..)
 renderPage : Model -> Html Msgs.Msg
 renderPage model =
     case model.router.page of
-        Router.Model.Home ->
+        Router.Models.Home ->
             Page.Home.View.render model.pageHome
 
-        Router.Model.NotFound ->
+        Router.Models.NotFound ->
             Page.NotFound.View.render model.pageNotFound
 
-        Router.Model.CompanyDetail companySlug ->
+        Router.Models.CompanyDetail companySlug ->
             Page.CompanyDetail.View.render companySlug model.pageCompanyDetail
 
-        Router.Model.CompanyList ->
+        Router.Models.CompanyList ->
             Page.CompanyList.View.render model.pageCompanyList

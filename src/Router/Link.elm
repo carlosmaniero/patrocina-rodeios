@@ -1,7 +1,7 @@
 module Router.Link exposing (..)
 
 import Model exposing (Model)
-import Router.Model
+import Router.Models
 import Router.Msg
 import Msgs
 import Html exposing (..)
@@ -42,11 +42,11 @@ invertedOr x y =
     not (x || y)
 
 
-renderLink : Router.Model.Page -> List (Attribute Msgs.Msg) -> List (Html Msgs.Msg) -> Html Msgs.Msg
+renderLink : Router.Models.Page -> List (Attribute Msgs.Msg) -> List (Html Msgs.Msg) -> Html Msgs.Msg
 renderLink page attributes childs =
     a
         (attributes
-            ++ [ href <| Router.Model.pageToUrl page
+            ++ [ href <| Router.Models.pageToUrl page
                , onPreventDefaultClick (Msgs.Router <| Router.Msg.NewPage page)
                ]
         )

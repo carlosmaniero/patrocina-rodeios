@@ -1,6 +1,6 @@
 module Companies.ModelSpec exposing (..)
 
-import Companies.Model
+import Companies.Models
 import Test exposing (..)
 import Expect
 
@@ -45,9 +45,9 @@ tests =
             [ test "that find by slug returns the company given a valid correct company slug" <|
                 \() ->
                     Expect.equal (Just firstCompany) <|
-                        Companies.Model.findBySlug "cruelcompany" validCompanies
+                        Companies.Models.findBySlug "cruelcompany" validCompanies
             , test "that find by slug returns nothing given an incorrect company slug" <|
                 \() ->
                     Expect.equal Nothing <|
-                        Companies.Model.findBySlug "goodcompany" validCompanies
+                        Companies.Models.findBySlug "goodcompany" validCompanies
             ]

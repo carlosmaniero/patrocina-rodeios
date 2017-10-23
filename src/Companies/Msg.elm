@@ -1,6 +1,6 @@
 module Companies.Msg exposing (Msg(..))
 
-import Companies.Model exposing (..)
+import Companies.Models exposing (..)
 import Http
 
 

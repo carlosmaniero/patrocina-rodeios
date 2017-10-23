@@ -1,11 +1,11 @@
 module Search.Update exposing (update)
 
-import Search.Model exposing (Model)
+import Search.Models exposing (Model)
 import Search.Msg exposing (..)
 import Search.Filters exposing (filterCompaniesByName)
-import Companies.Model
+import Companies.Models
 import Router.Update
-import Router.Model
+import Router.Models
 import Msgs
 import Array
 
@@ -52,7 +52,7 @@ resetSelected model =
     { model | selectedCompany = Nothing, selectedIndex = -1 }
 
 
-update : Msg -> Model -> List Companies.Model.Model -> ( Model, Cmd Msgs.Msg )
+update : Msg -> Model -> List Companies.Models.Model -> ( Model, Cmd Msgs.Msg )
 update msg model companies =
     let
         resetedModel =
@@ -74,7 +74,7 @@ update msg model companies =
                     ( model
                     , case model.selectedCompany of
                         Just company ->
-                            Router.Update.redirect <| Router.Model.CompanyDetail company.slug
+                            Router.Update.redirect <| Router.Models.CompanyDetail company.slug
 
                         Nothing ->
                             Cmd.none

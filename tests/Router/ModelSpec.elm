@@ -1,7 +1,7 @@
 module Router.ModelSpec exposing (..)
 
 import Router.Msg as Msg
-import Router.Model exposing (..)
+import Router.Models exposing (..)
 import Test exposing (..)
 import Expect
 
@@ -23,7 +23,7 @@ tests =
             , password = ""
             }
     in
-        describe "Router Model"
+        describe "Router.Models"
             [ test "that given a location with an empty path the model page is updated to home" <|
                 \() ->
                     locationToPage { blankLocation | pathname = "/" }

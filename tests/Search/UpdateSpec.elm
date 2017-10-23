@@ -1,7 +1,7 @@
 module Search.UpdateSpec exposing (..)
 
 import Search.Update as Update
-import Search.Init exposing (init)
+import Search.Models exposing (init)
 import Search.Msg as Msg
 import Test exposing (..)
 import Expect

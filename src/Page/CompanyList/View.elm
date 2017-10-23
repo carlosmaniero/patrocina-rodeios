@@ -6,16 +6,16 @@ import Layout.Header.View exposing (mainHeader)
 import Msgs
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Companies.Model
+import Companies.Models
 import Router.Link
-import Router.Model
+import Router.Models
 
 
-companyListItem : Companies.Model.Model -> Html Msgs.Msg
+companyListItem : Companies.Models.Model -> Html Msgs.Msg
 companyListItem company =
     li
         [ class "company-list-item" ]
-        [ Router.Link.renderLink (Router.Model.CompanyDetail company.slug)
+        [ Router.Link.renderLink (Router.Models.CompanyDetail company.slug)
             []
             [ img [ src company.image ] []
             , text company.name

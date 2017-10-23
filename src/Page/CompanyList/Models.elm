@@ -1,17 +1,17 @@
 module Page.CompanyList.Models exposing (Model, init)
 
-import Companies.Model
-import Layout.Header.Model
+import Companies.Models
+import Layout.Header.Models
 
 
 type alias Model =
-    { companies : List Companies.Model.Model
-    , header : Layout.Header.Model.Model
+    { companies : List Companies.Models.Model
+    , header : Layout.Header.Models.Model
     }
 
 
 init : Model
 init =
     { companies = []
-    , header = Layout.Header.Model.init
+    , header = Layout.Header.Models.init
     }

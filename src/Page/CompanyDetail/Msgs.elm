@@ -1,8 +1,8 @@
 module Page.CompanyDetail.Msgs exposing (Msg(..))
 
-import Companies.Model
+import Companies.Models
 import Http
 
 
 type Msg
-    = CompanyDataLoaded (Result Http.Error Companies.Model.Model)
+    = CompanyDataLoaded (Result Http.Error Companies.Models.Model)

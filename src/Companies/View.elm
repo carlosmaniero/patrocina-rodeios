@@ -1,6 +1,6 @@
 module Companies.View exposing (..)
 
-import Companies.Model exposing (Model)
+import Companies.Models exposing (Model)
 import Msgs exposing (Msg)
 import Html exposing (..)
 import Html.Attributes exposing (..)

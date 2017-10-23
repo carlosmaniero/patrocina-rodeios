@@ -1,9 +1,9 @@
 module Router.Msg exposing (Msg(..))
 
-import Router.Model
+import Router.Models
 import Navigation
 
 
 type Msg
     = UrlChange Navigation.Location
-    | NewPage Router.Model.Page
+    | NewPage Router.Models.Page
